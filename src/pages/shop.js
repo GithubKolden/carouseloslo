@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { client } from '../../lib/client';
-import { Product } from '../../typings';
-import { urlFor } from '../../lib/client';
-
+import { client, urlFor } from '../../lib/client';
+import Link from "next/link";
+//import { Product } from '../../typings';
+/*
 interface Props { products: [Product ]; }
-
-const Shop = ({ products }: Props) => {
+*/
+const Shop = ({ products }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
@@ -20,21 +20,21 @@ const Shop = ({ products }: Props) => {
           <div className="overflow-auto" style={{ height: "80vh" }}>
             <div className="row">
 
-            {products.filter((product: any)=>{
+            {products.filter((product)=>{
                 if (searchTerm== "") {
                   return product
                 } else if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                   return product
                 }
-              }).map((product: any) => {
+              }).map((product) => {
                 
               return (
-                <a key={product.slug.current} className="col-6 col-sm-3" style={{ cursor: "pointer", textDecoration: "none" }} href={"/product/" + product.slug.current}>
+                <Link key={product.slug.current} className="col-6 col-sm-3" style={{ cursor: "pointer", textDecoration: "none" }} href={`/product/${product.slug.current}`}>
                   <div className="img">
                       <img src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current} className="img-fluid"/>
                       {product.name}
                   </div>
-                </a>
+                </Link>
             )})}
 
             </div>
@@ -47,7 +47,7 @@ const Shop = ({ products }: Props) => {
 }
 
 export const getServerSideProps = async () => {
-  const ProjectsQuery: any = `*[_type == "product"] {
+  const ProjectsQuery = `*[_type == "product"] {
     image,
     name,
     slug,
