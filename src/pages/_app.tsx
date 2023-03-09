@@ -6,12 +6,14 @@ import { StateContext } from '../../context/StateContext';
 import { Toaster } from 'react-hot-toast';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <StateContext>
+  return (
+    <StateContext>
     <div className='App'>
-      <Navbar />
       <Toaster />
+      <Navbar />
       <Component {...pageProps} />
     </div>
   </StateContext>
+  )
 }
 

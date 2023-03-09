@@ -20,7 +20,7 @@ const ProductDetails = ({ product }) => {
             <Carousel>
               {image?.map((item, i) => (   
                 <Carousel.Item>
-                  <img src={urlFor(item)}/>  
+                  <img style={{maxWidth: "525px", maxHeight: "40vh"}} src={urlFor(item)}/>  
                 </Carousel.Item>   
               ))}
             </Carousel>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Cart  from './Cart';
 import { useStateContext } from '../../context/StateContext';
 import { AiOutlineShopping } from 'react-icons/ai';
+import Link from 'next/link';
 
 const Navigationbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
@@ -21,9 +22,13 @@ const Navigationbar = () => {
     <Navbar style={{ width:"100%" }} className="d-flex justify-content-center" bg="transparent" expand="lg" variant="dark">
 
       <Container id="logo" style={{ width:"100%", position: "absolute" }}>
-        <Navbar.Brand href='/' style={{ width:"10%", position: "absolute" }}>
+      <Link  href='/'>
+        <Navbar.Brand style={{ width:"10%", position: "absolute" }}>
+         
             <Image className='img' src={logo} alt="" style={{ width: "100%", height: "auto" }}/>
+            
         </Navbar.Brand>
+        </Link>
       </Container>
 
       <Container style={{ width: "auto" }}>
@@ -32,18 +37,18 @@ const Navigationbar = () => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href='/'>Home</Nav.Link>
+            <Link href='/'> Home </Link>
 
             <NavDropdown title="Shop" id="basic-nav-dropdown">
-              <NavDropdown.Item href='/shop'> All Products </NavDropdown.Item>
+              <Link href='/shop'> All Products </Link>
               <NavDropdown.Divider />
-              <NavDropdown.Item href='/shop'> Dried Flowers </NavDropdown.Item>
-              <NavDropdown.Item href='/shop'> Fresh Flowers </NavDropdown.Item>
+              <Link href='/shop'> Dried Flowers </Link> 
+              <Link href='/shop'> Fresh Flowers </Link>
             </NavDropdown>
 
-            <Nav.Link href='/project'>Projects</Nav.Link>
-            <Nav.Link href='/contact'>Contact</Nav.Link>
-            <Nav.Link href='/about'>About</Nav.Link>
+            <Link href='/project'>Projects</Link>
+            <Link href='/contact'>Contact</Link>
+            <Link href='/about'>About</Link>
           </Nav>
           <button type="button" className='cart-icon' onClick={() => setShowCart(true)}>
             <AiOutlineShopping />
