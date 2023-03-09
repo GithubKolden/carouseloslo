@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { client } from '../../lib/client';
 
 const Shop = () => {
   const [products, setProducts] = useState<any[]>([]);
@@ -58,6 +59,23 @@ const Shop = () => {
     </div>
   )
 }
+
+export const getServerSideProps = async () => {
+  const ProjectsQuery: any = `*[_type == "product"] {
+    image,
+    name,
+    slug,
+    price,
+    details
+  }`;
+  const products = await client.fetch(ProjectsQuery);
+
+  return {
+    props: { products, }
+  }
+}
+
+
 export default Shop;
 
 /* align: "center" divNR3 SKAL VÆRE <Link> i stedet for <a> tag!!! */
