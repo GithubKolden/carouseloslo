@@ -2,9 +2,12 @@ import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
 import { useEffect } from 'react';
 import logo from './img/LOGO.png';
 import Image from 'next/image';
+import Cart  from './Cart';
+import { useStateContext } from '../../context/StateContext';
+import { AiOutlineShopping } from 'react-icons/ai';
 
 const Navigationbar = () => {
-
+  const { showCart, setShowCart, totalQuantities } = useStateContext();
   // Makes navbar logo not visible on homepage
   useEffect(() => {
     if (window.location.pathname.split("",2).pop() === "/")  {
@@ -42,10 +45,16 @@ const Navigationbar = () => {
             <Nav.Link href='/contact'>Contact</Nav.Link>
             <Nav.Link href='/about'>About</Nav.Link>
           </Nav>
+          <button type="button" className='cart-icon' onClick={() => setShowCart(true)}>
+            <AiOutlineShopping />
+            <span className='cart-item-qty'>{totalQuantities}</span>
+          </button>
         </Navbar.Collapse>
-
+          
       </Container>
+      {showCart && <Cart />}
     </Navbar>
+    
   )
 }
 export default Navigationbar;

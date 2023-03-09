@@ -1,14 +1,16 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { client, urlFor } from '../../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-//import { GetStaticProps, GetStaticPaths } from 'next';
-/*
-import { Product } from '../../../typings';
-interface Props { products: [Product]; };
-*/
-const ProductDetails = ({ product }) => {
+import { useStateContext } from '../../../context/StateContext';
 
+const ProductDetails = ({ product }) => {
   const { image, name, details, price } = product;
+  const { decQty, incQty, qty, onAdd, setShowCart} = useStateContext();
+
+  const handleBuyNow = () => { 
+    onAdd(product, qty);
+    setShowCart(true);
+  }
 
   return (
       <div className="productContainer border">
@@ -30,13 +32,13 @@ const ProductDetails = ({ product }) => {
             <p>{price}</p>
 
             <div className='quantity-desc'>
-                <span className='minus' onclick=""><AiOutlineMinus /></span>
-                <span className='num' onclick="">0</span>
-                <span className='minus' onclick=""><AiOutlinePlus /></span>
+                <button className='btn btn-primary' onClick={decQty}><AiOutlineMinus /></button>
+                <span className='num'>{qty}</span>
+                <button className='btn btn-primary' onClick={incQty}><AiOutlinePlus /></button>
             </div>
 
             <div className='buttons'>
-              <button type='button' className='btn btn-success' onClick=''>Add to Cart</button>
+              <button type='button' className='btn btn-success' onClick={() => onAdd(product, qty)}>Add to Cart</button>
             </div>
 
           </div>
@@ -70,18 +72,10 @@ const ProductDetails = ({ product }) => {
   
   export const getStaticProps = async ({ params: { slug }}) => {
     const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
-    //const productsQuery = '*[_type == "product"]'
-    
     const product = await client.fetch(query);
-    //const products = await client.fetch(productsQuery);
-  
-    console.log(product);
   
     return {
       props: { product }
     }
   }
-
-
-
 export default ProductDetails;
