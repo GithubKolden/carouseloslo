@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 const Navigationbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
-  // Makes navbar logo not visible on homepage
+  //Makes navbar logo not visible on homepage
   useEffect(() => {
     if (window.location.pathname.split("",2).pop() === "/")  {
       (document.getElementById("logo") as HTMLElement).style.display = "none";
