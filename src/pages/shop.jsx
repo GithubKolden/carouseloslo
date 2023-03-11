@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { client, urlFor } from '../../lib/client';
 import Link from "next/link";
+import { TextField, Box, Container, Grid } from "@mui/material";
 //import { Product } from '../../typings';
 /*
 interface Props { products: [Product ]; }
@@ -9,39 +10,40 @@ const Shop = ({ products }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <div className="d-flex justify-content-center">
-      <div className="container-flex text-center" style={{ width: "90%", height: "auto" }}>
-        <div className="row">
-          
-          <div className="input-group my-3 col-6 col-sm-3" style={{ width: "500px", margin: "auto" }}>
-            <input type="search" className="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon" onChange={event => setSearchTerm(event.target.value)}/>
-          </div>
+    <div>
+      <Container direction="column" alignItems="center" justify="center" style={{borderStyle: "none"}}>
 
-          <div className="overflow-auto" style={{ height: "80vh" }}>
-            <div className="row">
+        <Grid container direction="column" alignItems="center" justify="center" style={{borderStyle: "none"}}>
+          <TextField sx={{ my: 5 }} type="search" id="outlined-basic" label="Search" placeholder="Productname"  variant="outlined" aria-label="Search" aria-describedby="search-addon" onChange={event => setSearchTerm(event.target.value)} />
+        </Grid>
 
-            {products.filter((product)=>{
-                if (searchTerm== "") {
-                  return product
-                } else if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                  return product
-                }
-              }).map((product) => {
-                
-              return (
-                <Link key={product.slug.current} className="col-6 col-sm-3" style={{ cursor: "pointer", textDecoration: "none" }} href={`/product/${product.slug.current}`}>
-                  <div className="img">
-                      <img src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current} className="img-fluid"/>
-                      {product.name}
-                  </div>
-                </Link>
+          <Grid container justify="center" md={12} style={{borderStyle: "none"}}>
+              {products.filter((product)=>{
+
+                  if (searchTerm== "") { return product }
+                  else if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) { return product }
+
+                }).map((product) => {
+                return (
+
+                    <Grid item direction="column" alignItems="center" md={4} style={{textAlign: "center"}}>
+                      <Link key={product.slug.current} style={{ cursor: "pointer", textDecoration: "none" }} href={`/product/${product.slug.current}`}>
+                          <div class="card card-1">
+                            <div class="top">
+                              <Box sx={{ width: "100%" }} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
+                            </div>
+                            <div class="bottom">
+                              <p>{product.name}</p>
+                              <input placeholder="YO!"/>
+                            </div>
+                          </div>
+                      </Link>
+                    </Grid>
+
             )})}
-
-            </div>
-          </div>
+          </Grid>
         
-        </div>
-      </div>
+      </Container>
     </div>
   )
 }
@@ -60,8 +62,6 @@ export const getServerSideProps = async () => {
     props: { products, }
   }
 }
-
-
 export default Shop;
 
-/* align: "center" divNR3 SKAL VÆRE <Link> i stedet for <a> tag!!! */
+//<TextField type="search" id="outlined-basic" label="Search" placeholder="Productname"  variant="outlined" aria-label="Search" aria-describedby="search-addon" onChange={event => setSearchTerm(event.target.value)} />

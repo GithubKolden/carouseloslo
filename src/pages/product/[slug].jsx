@@ -1,7 +1,8 @@
-import Carousel from 'react-bootstrap/Carousel';
 import { client, urlFor } from '../../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useStateContext } from '../../../context/StateContext';
+import Carousel from 'react-material-ui-carousel';
+import { Box } from '@mui/system';
 
 const ProductDetails = ({ product }) => {
   const { image, name, details, price } = product;
@@ -13,38 +14,37 @@ const ProductDetails = ({ product }) => {
   }
 
   return (
-      <div className="productContainer border">
-        <div className="row justify-content-center mx-5">
-
-          <div className="col-md-5 mt-4 text-center border">
-            <Carousel>
-              {image?.map((item, i) => (   
-                <Carousel.Item>
-                  <img style={{maxWidth: "525px", maxHeight: "40vh"}} src={urlFor(item)}/>  
-                </Carousel.Item>   
-              ))}
-            </Carousel>
-          </div>
-        
-          <div className="col-md-5 mt-4 text-center border border-danger">
-            <h1>{name}</h1>
-            <p>{details}</p>
-            <p>{price}</p>
-
-            <div className='quantity-desc'>
-                <button className='btn btn-primary' onClick={decQty}><AiOutlineMinus /></button>
-                <span className='num'>{qty}</span>
-                <button className='btn btn-primary' onClick={incQty}><AiOutlinePlus /></button>
-            </div>
-
-            <div className='buttons'>
-              <button type='button' className='btn btn-success' onClick={() => onAdd(product, qty)}>Add to Cart</button>
-            </div>
-
-          </div>
-
-        </div>
+    <Box>
+      <div style={{ marginTop: "50px", color: "#494949", maxWidth: "525px", maxHeight: "40vh"}}>
+        <br/>
+        <Carousel>
+            {
+              image?.map((item, index) => {
+                return <img style={{maxWidth: "525px", maxHeight: "40vh"}} src={urlFor(item)}/>
+              })
+            }
+        </Carousel>
+        <br/>
       </div>
+
+      <div className="col-md-5 mt-4 text-center border border-danger">
+
+        <h1>{name}</h1>
+        <p>{details}</p>
+        <p>{price}</p>
+
+        <div className='quantity-desc'>
+            <button className='btn btn-primary' onClick={decQty} style={{cursor: "pointer"}}><AiOutlineMinus /></button>
+            <span className='num'>{qty}</span>
+            <button className='btn btn-primary' onClick={incQty} style={{cursor: "pointer"}}><AiOutlinePlus /></button>
+        </div>
+
+        <div className='buttons'>
+          <button type='button' className='btn btn-success' style={{cursor: "pointer"}} onClick={() => onAdd(product, qty)}>Add to Cart</button>
+        </div>
+
+      </div>
+    </Box>
     )
   }
 
@@ -78,4 +78,10 @@ const ProductDetails = ({ product }) => {
       props: { product }
     }
   }
+
+
+
+
+
+
 export default ProductDetails;
