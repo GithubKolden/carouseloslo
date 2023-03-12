@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { client, urlFor } from '../../lib/client';
 import Link from "next/link";
 import { TextField, Box, Container, Grid } from "@mui/material";
-//import { Product } from '../../typings';
 /*
+import { Product } from '../../typings';
 interface Props { products: [Product ]; }
 */
 const Shop = ({ products }) => {
@@ -63,5 +63,3 @@ export const getServerSideProps = async () => {
   }
 }
 export default Shop;
-
-//<TextField type="search" id="outlined-basic" label="Search" placeholder="Productname"  variant="outlined" aria-label="Search" aria-describedby="search-addon" onChange={event => setSearchTerm(event.target.value)} />

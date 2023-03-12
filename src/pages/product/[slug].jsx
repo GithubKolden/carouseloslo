@@ -27,20 +27,20 @@ const ProductDetails = ({ product }) => {
         <br/>
       </div>
 
-      <div className="col-md-5 mt-4 text-center border border-danger">
+      <div>
 
         <h1>{name}</h1>
         <p>{details}</p>
         <p>{price}</p>
 
         <div className='quantity-desc'>
-            <button className='btn btn-primary' onClick={decQty} style={{cursor: "pointer"}}><AiOutlineMinus /></button>
+            <button onClick={decQty} style={{cursor: "pointer"}}><AiOutlineMinus /></button>
             <span className='num'>{qty}</span>
-            <button className='btn btn-primary' onClick={incQty} style={{cursor: "pointer"}}><AiOutlinePlus /></button>
+            <button onClick={incQty} style={{cursor: "pointer"}}><AiOutlinePlus /></button>
         </div>
 
         <div className='buttons'>
-          <button type='button' className='btn btn-success' style={{cursor: "pointer"}} onClick={() => onAdd(product, qty)}>Add to Cart</button>
+          <button type='button' style={{cursor: "pointer"}} onClick={() => onAdd(product, qty)}>Add to Cart</button>
         </div>
 
       </div>
@@ -78,10 +78,4 @@ const ProductDetails = ({ product }) => {
       props: { product }
     }
   }
-
-
-
-
-
-
 export default ProductDetails;

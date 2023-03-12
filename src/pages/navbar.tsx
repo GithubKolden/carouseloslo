@@ -33,7 +33,7 @@ const Navigationbar = () => {
   const handleCloseNavMenu = () => { setAnchorElNav(null); };
 
   const { showCart, setShowCart, totalQuantities } = useStateContext();
-
+/*
   useEffect(() => {
     if (window.location.pathname.split("",2).pop() === "/")  {
       (document.getElementById("logo") as HTMLElement).style.display = "none";
@@ -41,7 +41,7 @@ const Navigationbar = () => {
       (document.getElementById("logo") as HTMLElement).style.display = "";
     }
   })
-  
+  */
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -62,7 +62,8 @@ const Navigationbar = () => {
               textDecoration: 'none',
             }}
           >
-          <Image id="logo" src={logo} className="classes.logo" alt="logo" style={{width: "170px", left: "15px", height: "auto", float: "left", position: "absolute"}}/>
+          {/*<Image id="logo" src={logo} className="classes.logo" alt="logo" style={{width: "170px", left: "15px", height: "auto", float: "left", position: "absolute"}}/>
+          */}
           </Typography>
 
 
@@ -94,15 +95,44 @@ const Navigationbar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+            > {/* Rendrer sidene i mobilversjon: */}
+              
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="/">
+                  <Typography textAlign="center">Home</Typography>
+                </Link>
+              </MenuItem>
+
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="/shop">
+                  <Typography textAlign="center">Shop</Typography>
+                </Link>
+              </MenuItem>
+
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="/project">
+                  <Typography textAlign="center">Projects</Typography>
+                </Link>
+              </MenuItem>
+
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="/contact">
+                  <Typography textAlign="center">Contact</Typography>
+                </Link>
+              </MenuItem>
+
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="/about">
+                  <Typography textAlign="center">About</Typography>
+                </Link>
+              </MenuItem>
+              
+              
             </Menu>
           </Box>
+          {/* LOGO MOBILE: */}
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          
           <Typography
             variant="h5"
             noWrap
@@ -122,15 +152,68 @@ const Navigationbar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+
+      
               <Button
-                key={page}
+                key="home"
+                onClick={handleCloseNavMenu}
+                
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link href="/" style={{textDecoration: "none", color: "inherit"}}>
+                  HOME
+                </Link>
+              </Button>
+    
+
+            
+              <Button
+                key="shop"
+                onClick={handleCloseNavMenu}
+                href="/shop"
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link href="/shop" style={{textDecoration: "none", color: "inherit"}}>
+                  SHOP
+                </Link>
+              </Button>
+           
+       
+              <Button
+                key="project"
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link href="/project" style={{textDecoration: "none", color: "inherit"}}>
+                  PROJECTS
+                </Link>
               </Button>
-            ))}
+
+
+     
+              <Button
+                key="contact"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link href="/contact" style={{textDecoration: "none", color: "inherit"}}>
+                  CONTACT
+                </Link>
+              </Button>
+       
+
+   
+              <Button
+                key="about"
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link href="/about" style={{textDecoration: "none", color: "inherit"}}>
+                  ABOUT
+                </Link>
+              </Button>
+       
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
