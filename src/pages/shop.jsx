@@ -11,13 +11,13 @@ const Shop = ({ products }) => {
 
   return (
     <div>
-      <Container direction="column" alignItems="center" justify="center" style={{borderStyle: "none"}}>
+      <Container direction="column" alignItems="center" justify="center" style={{borderStyle: "solid"}}>
 
         <Grid container direction="column" alignItems="center" justify="center" style={{borderStyle: "none"}}>
           <TextField sx={{ my: 5 }} type="search" id="outlined-basic" label="Search" placeholder="Productname"  variant="outlined" aria-label="Search" aria-describedby="search-addon" onChange={event => setSearchTerm(event.target.value)} />
         </Grid>
 
-          <Grid container justify="center" md={12} style={{borderStyle: "none"}}>
+          <Grid container justify="center" md={12} style={{borderStyle: "solid"}}>
               {products.filter((product)=>{
 
                   if (searchTerm== "") { return product }
@@ -26,11 +26,11 @@ const Shop = ({ products }) => {
                 }).map((product) => {
                 return (
 
-                    <Grid item direction="column" alignItems="center" md={4} style={{textAlign: "center"}}>
+                    <Grid key={product.slug.current} item direction="column" alignItems="center" md={4} style={{textAlign: "center", borderStyle: "solid"}}>
                       <Link key={product.slug.current} style={{ cursor: "pointer", textDecoration: "none" }} href={`/product/${product.slug.current}`}>
                           <div class="card card-1">
                             <div class="top">
-                              <Box sx={{ width: "100%" }} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
+                              <Box key={product.slug.current} sx={{ width: "100%" }} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
                             </div>
                             <div class="bottom">
                               <p>{product.name}</p>
@@ -63,3 +63,7 @@ export const getServerSideProps = async () => {
   }
 }
 export default Shop;
+
+// git clone https://github.com/vahid-nejad/nextjs-redux-shopping-cart.git ( RESPONSIVE SHOPPTING CART )
+
+// https://www.youtube.com/watch?v=rWfhwW9forg ( SAVE TO LOCAL WEBBROWSER STORAGE )

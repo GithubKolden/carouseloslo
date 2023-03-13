@@ -12,7 +12,7 @@ const ProductDetails = ({ product }) => {
     onAdd(product, qty);
     setShowCart(true);
   }
-
+  /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
   return (
     <Box>
       <div style={{ marginTop: "50px", color: "#494949", maxWidth: "525px", maxHeight: "40vh"}}>
@@ -20,7 +20,7 @@ const ProductDetails = ({ product }) => {
         <Carousel>
             {
               image?.map((item, index) => {
-                return <img style={{maxWidth: "525px", maxHeight: "40vh"}} src={urlFor(item)}/>
+                return <Box component="img" style={{maxWidth: "525px", maxHeight: "40vh"}} src={urlFor(item)} alt="product images" key={item}/>
               })
             }
         </Carousel>
@@ -47,7 +47,7 @@ const ProductDetails = ({ product }) => {
     </Box>
     )
   }
-
+  /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
   export const getStaticPaths = async () => {
     const query = `*[_type == "product"] {
       slug {

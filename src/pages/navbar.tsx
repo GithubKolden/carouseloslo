@@ -154,64 +154,42 @@ const Navigationbar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
       
-              <Button
-                key="home"
-                onClick={handleCloseNavMenu}
-                
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              
                 <Link href="/" style={{textDecoration: "none", color: "inherit"}}>
                   HOME
                 </Link>
-              </Button>
+              
     
 
             
-              <Button
-                key="shop"
-                onClick={handleCloseNavMenu}
-                href="/shop"
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              
                 <Link href="/shop" style={{textDecoration: "none", color: "inherit"}}>
                   SHOP
                 </Link>
-              </Button>
+              
            
        
-              <Button
-                key="project"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              
                 <Link href="/project" style={{textDecoration: "none", color: "inherit"}}>
                   PROJECTS
                 </Link>
-              </Button>
+              
 
 
      
-              <Button
-                key="contact"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              
                 <Link href="/contact" style={{textDecoration: "none", color: "inherit"}}>
                   CONTACT
                 </Link>
-              </Button>
+              
        
 
    
-              <Button
-                key="about"
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              
                 <Link href="/about" style={{textDecoration: "none", color: "inherit"}}>
                   ABOUT
                 </Link>
-              </Button>
+              
        
 
           </Box>
