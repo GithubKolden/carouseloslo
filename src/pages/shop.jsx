@@ -11,13 +11,13 @@ const Shop = ({ products }) => {
 
   return (
     <div>
-      <Container direction="column" alignItems="center" justify="center" style={{borderStyle: "solid"}}>
+      <Container direction="column" alignItems="center" justify="center" style={{borderStyle: "none"}}>
 
         <Grid container direction="column" alignItems="center" justify="center" style={{borderStyle: "none"}}>
           <TextField sx={{ my: 5 }} type="search" id="outlined-basic" label="Search" placeholder="Productname"  variant="outlined" aria-label="Search" aria-describedby="search-addon" onChange={event => setSearchTerm(event.target.value)} />
         </Grid>
 
-          <Grid container justify="center" md={12} style={{borderStyle: "solid"}}>
+          <Grid container justify="center" md={12} style={{borderStyle: "none"}}>
               {products.filter((product)=>{
 
                   if (searchTerm== "") { return product }
@@ -26,7 +26,7 @@ const Shop = ({ products }) => {
                 }).map((product) => {
                 return (
 
-                    <Grid key={product.slug.current} item direction="column" alignItems="center" md={4} style={{textAlign: "center", borderStyle: "solid"}}>
+                    <Grid key={product.slug.current} item direction="column" alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
                       <Link key={product.slug.current} style={{ cursor: "pointer", textDecoration: "none" }} href={`/product/${product.slug.current}`}>
                           <div class="card card-1">
                             <div class="top">

@@ -8,14 +8,10 @@ import { Toaster } from 'react-hot-toast';
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <StateContext>
-      <div className='App'>
-
         <Toaster />
         <CssBaseline />
         <Navbar />
         <Component {...pageProps} />
-
-      </div>
     </StateContext>
   )
 }
