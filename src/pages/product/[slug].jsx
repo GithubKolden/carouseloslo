@@ -2,7 +2,8 @@ import { client, urlFor } from '../../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useStateContext } from '../../../context/StateContext';
 import Carousel from 'react-material-ui-carousel';
-import { Box } from '@mui/system';
+import { Box, Container } from '@mui/system';
+import { Button } from '@mui/material';
 
 const ProductDetails = ({ product }) => {
   const { image, name, details, price } = product;
@@ -14,37 +15,35 @@ const ProductDetails = ({ product }) => {
   }
   /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
   return (
-    <Box>
-      <div style={{ marginTop: "50px", color: "#494949", maxWidth: "525px", maxHeight: "40vh"}}>
-        <br/>
-        <Carousel>
-            {
-              image?.map((item, index) => {
-                return <Box component="img" style={{maxWidth: "525px", maxHeight: "40vh"}} src={urlFor(item)} alt="product images" key={item}/>
-              })
-            }
-        </Carousel>
-        <br/>
-      </div>
+    <Container textAlign="center" style={{ marginTop: "50px", color: "#494949", maxWidth: "525px", maxHeight: "40vh", justifyContent: "center", alignItems: "center"}}>
+      <Box>
+          <Carousel>
+              {
+                image?.map((item, index) => {
+                  return <Box component="img" style={{maxWidth: "525px", maxHeight: "40vh"}} src={urlFor(item)} alt="product images" key={item}/>
+                })
+              }
+          </Carousel>
 
-      <div>
+        <div>
 
-        <h1>{name}</h1>
-        <p>{details}</p>
-        <p>{price}</p>
+          <h1>{name}</h1>
+          <p style={{paddingTop: "15px", paddingBottom: "25px"}}><p style={{fontWeight: "300px"}}>Description:</p>{details}</p>
+          <p style={{fontWeight: "bold"}}>{price},- kr</p>
 
-        <div className='quantity-desc'>
-            <button onClick={decQty} style={{cursor: "pointer"}}><AiOutlineMinus /></button>
-            <span className='num'>{qty}</span>
-            <button onClick={incQty} style={{cursor: "pointer"}}><AiOutlinePlus /></button>
+          <div className='quantity-desc' style={{paddingTop: "10px", paddingBottom: "15px"}}>
+              <Button variant="contained" size="small" onClick={decQty} style={{cursor: "pointer"}}><AiOutlineMinus /></Button>
+              <span style={{padding: "10px"}} className='num'>{qty}</span>
+              <Button variant="contained" size="small" onClick={incQty} style={{cursor: "pointer"}}><AiOutlinePlus /></Button>
+          </div>
+
+          <div className='Buttons'>
+            <Button variant="contained" color="success" type='Button' style={{cursor: "pointer"}} onClick={() => onAdd(product, qty)}>Add to Cart</Button>
+          </div>
+
         </div>
-
-        <div className='buttons'>
-          <button type='button' style={{cursor: "pointer"}} onClick={() => onAdd(product, qty)}>Add to Cart</button>
-        </div>
-
-      </div>
-    </Box>
+      </Box>
+    </Container>
     )
   }
   /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
