@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import logo from './img/LOGO.png';
 import Image from 'next/image';
-import Cart  from './Cart';
+import Cart  from './cart';
 import { useStateContext } from '../../context/StateContext';
 import { AiOutlineShopping } from 'react-icons/ai';
 import Link from 'next/link';
@@ -190,15 +190,23 @@ const Navigationbar = () => {
                   ABOUT
                 </Link>
               
-       
+
+
+
+                <Link href="/order" style={{textDecoration: "none", color: "inherit"}}>
+                  ORDER
+                </Link>
+              
 
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Show items">
-              <IconButton onClick={setShowCart} sx={{ p: 0 }}>
-                <AiOutlineShopping />
-                <span className='cart-item-qty'>{totalQuantities}</span>
+              <IconButton sx={{ p: 0 }}>
+                <Link href="/cart">
+                  <AiOutlineShopping />
+                  <span className='cart-item-qty'>{totalQuantities}</span>
+                </Link>
               </IconButton>
             </Tooltip>
             <Menu
@@ -220,7 +228,6 @@ const Navigationbar = () => {
           </Box>
         </Toolbar>
       </Container>
-      {showCart && <Cart />}
     </AppBar>
   )
 }

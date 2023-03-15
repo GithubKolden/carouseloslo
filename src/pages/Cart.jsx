@@ -14,22 +14,18 @@ const Cart = () => {
   /*HANDLECHECKOUT HER!*/
 
   return (
-    <div className="cart-wrapper" ref={cartRef} style={{width: "100px", height: "20px"}}>
+    <div className="cart-wrapper" ref={cartRef} style={{width: "100%", height: "20px"}}>
       <div className="cart-container">
-        <button
-        type="button"
-        className="cart-heading"
-        onClick={() => setShowCart(false)}>
-          <AiOutlineLeft />
-          <span className="heading">Your Cart</span>
-          <span className="cart-num-items">({totalQuantities} items)</span>
-        </button>
 
-        {cartItems.length < 1 && (
+        <span className="heading">Your Cart</span>
+        <span className="cart-num-items">({totalQuantities} items)</span>
+
+
+        {cartItems.length < 1 && (  
           <div className="empty-cart">
             <AiOutlineShopping size={150} />
             <h3>Your shopping bag is empty</h3>
-            <Link href="/">
+            <Link href="/shop">
               <button
                 type="button"
                 onClick={() => setShowCart(false)}
@@ -53,7 +49,7 @@ const Cart = () => {
                 <div className="flex bottom">
                   <div>
                   <p className="quantity-desc">
-                    <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
+                   <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
                     <AiOutlineMinus />
                     </span>
                     <span className="num" onClick="">{item.quantity}</span>
