@@ -9,10 +9,6 @@ const ProductDetails = ({ product }) => {
   const { image, name, details, price } = product;
   const { decQty, incQty, qty, onAdd, setShowCart} = useStateContext();
 
-  const handleBuyNow = () => { 
-    onAdd(product, qty);
-    setShowCart(true);
-  }
   /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
   return (
     <Container textAlign="center" style={{ marginTop: "50px", color: "#494949", maxWidth: "525px", maxHeight: "40vh", justifyContent: "center", alignItems: "center"}}>
