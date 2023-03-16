@@ -35,6 +35,18 @@ export default {
             name: 'details',
             title: 'Details',
             type: 'string',
+        },
+        {
+            name: 'InStock',
+            title: 'InStock',
+            type: 'boolean',
+
+        },
+        {
+            name: 'ferskhet',
+            title: 'ferskhet',
+            type: 'string',
         }
+
     ]
 }
