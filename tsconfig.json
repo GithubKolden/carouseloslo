@@ -21,7 +21,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "src/pages/shop.js", "src/pages/product/[slug].js", "src/pages/product/[slug].js", "src/pages/product/[slug].js",
+    "**/*.tsx", "src/pages/shop.js", "src/pages/product/[slug].js", "src/pages/product/[slug].js", "src/pages/product/[slug].js", "src/pages/shop.jsx",
   ],
   "exclude": ["node_modules"]
 }

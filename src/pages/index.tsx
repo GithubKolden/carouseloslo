@@ -13,9 +13,9 @@ const Home = () => {
       style={{ minHeight: '100vh' }}
     >
 
-      <Grid item xs={3}>
-        <Box sx={{ width: '25%' }}>
-          <Image src={logo} alt="" className="img-fluid" />
+      <Grid item xs={12} sx={{ textAlign: "center" }}>
+        <Box sx={{ maxWidth: '100%', height: 'auto', mx: "auto" }}>
+          <Image src={logo} alt="" className="img-fluid" layout="responsive" />
         </Box>
       </Grid>   
    

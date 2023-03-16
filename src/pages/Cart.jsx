@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
-import toast from 'react-hot-toast';
-
 import { useStateContext } from '../../context/StateContext';
 import { urlFor } from '../../lib/client';
 //import getStripe from '../lib/getStripe';
@@ -14,12 +12,8 @@ const Cart = () => {
   /*HANDLECHECKOUT HER!*/
 
   return (
-    <div className="cart-wrapper" ref={cartRef} style={{width: "100%", height: "20px"}}>
+    <div className="cart-wrapper" ref={cartRef} style={{width: "100%", height: "20px", paddingTop: "3%"}}>
       <div className="cart-container">
-
-        <span className="heading">Your Cart</span>
-        <span className="cart-num-items">({totalQuantities} items)</span>
-
 
         {cartItems.length < 1 && (  
           <div className="empty-cart">

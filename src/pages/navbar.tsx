@@ -43,7 +43,7 @@ const Navigationbar = () => {
   })
   */
   return (
-    <AppBar position="static">
+    <AppBar position="static" elevation={0} sx={{ backgroundColor: 'transparent', position: "absolute" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           
@@ -151,54 +151,38 @@ const Navigationbar = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+  <Link href="/" passHref>
+    <Button sx={{ color: 'inherit', textDecoration: 'none', mr: 2 }}>
+      HOME
+    </Button>
+  </Link>
 
-      
-              
-                <Link href="/" style={{textDecoration: "none", color: "inherit"}}>
-                  HOME
-                </Link>
-              
-    
+  <Link href="/shop" passHref>
+    <Button sx={{ color: 'inherit', textDecoration: 'none', mr: 2 }}>
+      SHOP
+    </Button>
+  </Link>
 
-            
-              
-                <Link href="/shop" style={{textDecoration: "none", color: "inherit"}}>
-                  SHOP
-                </Link>
-              
-           
-       
-              
-                <Link href="/project" style={{textDecoration: "none", color: "inherit"}}>
-                  PROJECTS
-                </Link>
-              
+  <Link href="/project" passHref>
+    <Button sx={{ color: 'inherit', textDecoration: 'none', mr: 2 }}>
+      PROJECTS
+    </Button>
+  </Link>
 
+  <Link href="/contact" passHref>
+    <Button sx={{ color: 'inherit', textDecoration: 'none', mr: 2 }}>
+      CONTACT
+    </Button>
+  </Link>
 
-     
-              
-                <Link href="/contact" style={{textDecoration: "none", color: "inherit"}}>
-                  CONTACT
-                </Link>
-              
-       
-
-   
-              
-                <Link href="/about" style={{textDecoration: "none", color: "inherit"}}>
-                  ABOUT
-                </Link>
-              
-
-
-
-                <Link href="/order" style={{textDecoration: "none", color: "inherit"}}>
-                  ORDER
-                </Link>
-              
-
-          </Box>
+  <Link href="/about" passHref>
+    <Button sx={{ color: 'inherit', textDecoration: 'none' }}>
+      ABOUT
+    </Button>
+  </Link>
+</Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Show items">
