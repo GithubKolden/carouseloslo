@@ -9,17 +9,9 @@ import Link from 'next/link';
 //MATERIAL UI:
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Tooltip, MenuItem, Button, Container, Menu, Typography, IconButton, Toolbar, Box } from '@mui/material/'; 
 
 const pages = ['Home', 'Shop', 'Projects', 'Contact', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -43,7 +35,7 @@ const Navigationbar = () => {
   })
   */
   return (
-    <AppBar position="static" elevation={0} sx={{ backgroundColor: 'transparent'}}>
+    <AppBar position="static" elevation={0} sx={{ backgroundColor: 'transparent' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           
@@ -126,7 +118,12 @@ const Navigationbar = () => {
                   <Typography textAlign="center">About</Typography>
                 </Link>
               </MenuItem>
-              
+
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="/order">
+                  <Typography textAlign="center">Custom Order</Typography>
+                </Link>
+              </MenuItem>
               
             </Menu>
           </Box>
@@ -180,6 +177,12 @@ const Navigationbar = () => {
   <Link href="/about" passHref>
     <Button sx={{ color: 'inherit', textDecoration: 'none' }}>
       ABOUT
+    </Button>
+  </Link>
+
+  <Link href="/order" passHref>
+    <Button sx={{ color: 'inherit', textDecoration: 'none' }}>
+      CUSTOM ORDER
     </Button>
   </Link>
 </Box>
