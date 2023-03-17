@@ -35,7 +35,7 @@ const ProductDetails = ({ product }) => {
         <Box>
           <Carousel>
             {image?.map((item, index) => {
-              return (
+              return ( 
                 <Box
                   component="img"
                   style={{ maxWidth: '525px', maxHeight: '40vh' }}

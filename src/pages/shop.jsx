@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TextField, Box, Container, Grid, ButtonGroup, Button } from "@mui/material";
 import { useStateContext } from '../../context/StateContext';
 import NoSsr from '@mui/material/NoSsr';
+import Image from "next/image";
 
 const Shop = ({ products }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -68,7 +69,7 @@ const Shop = ({ products }) => {
 
                       
                         <div className="top">
-                          <Box key={product.slug.current} sx={{ width: "100%" }} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
+                          <Image fill key={product.slug.current} sx={{ width: "100%" }} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
                         </div>
                       
 
