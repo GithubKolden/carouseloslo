@@ -13,11 +13,16 @@ const Shop = ({ products }) => {
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
   const [isInStock, setIsInStock] = useState(InStock);
 
-  const handleAddToCart = () => {
-    if (isInStock) {
-      onAdd(product, qty);
+  const handleAddToCart = (product) => {
+    if (product.InStock) {
+      if (qty) {
+        onAdd(product, qty);
+      } else {
+        console.error('Quantity is not defined');
+      }
     }
   };
+  
 
   const handleFilter = (filterTerm) => {
     if (filterTerm === "All") {
@@ -35,26 +40,27 @@ const Shop = ({ products }) => {
           <TextField sx={{ my: 5 }} type="search" id="outlined-basic" label="Search" placeholder="Productname" variant="outlined" aria-label="Search" aria-describedby="search-addon" onChange={event => setSearchTerm(event.target.value)} />
         </Grid>
 
-        <Grid container style={{borderStyle: "none", paddingTop: "0.5%"}}>
+        <Grid container style={{borderStyle: "none"}} justifyContent="center">
+          <ButtonGroup variant="contained" aria-label="outlined primary button group" style={{ boxShadow: "none" }}>
 
-          
-          <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-            <Button onClick={() => handleFilter("All")}>All</Button>
-            <div class="drawed_line_item"></div>
-          </Grid>
-          
-          <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-            <Button onClick={() => handleFilter("fersk")}>Fresh</Button>
-            <div class="drawed_line_item"></div>
-          </Grid>
-          
-          <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-            <Button onClick={() => handleFilter("tørket")}>Dried</Button>
-            <div class="drawed_line_item"></div>
-          </Grid>
-          
-          
+            <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
+              <Button onClick={() => handleFilter("All")}>All</Button>
+            </Grid>
 
+            <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
+              <Button onClick={() => handleFilter("fersk")}>Fersk</Button>
+            </Grid>
+
+            <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
+              <Button onClick={() => handleFilter("tørket")}>Tørket</Button>
+            </Grid>
+
+          </ButtonGroup>
+        </Grid>
+
+
+        <Grid container justifyContent="center" style={{borderStyle: "none", paddingTop: "0.5%"}}>
+          
           {filteredProducts
             .filter((product)=>{
               if (searchTerm === "") { return product.InStock === true }
@@ -62,34 +68,27 @@ const Shop = ({ products }) => {
             })
             .map((product) => {
               return (
-                <Grid key={product.slug.current} item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-                  <Link key={product.slug.current} style={{ cursor: "pointer", textDecoration: "none" }} href={`/product/${product.slug.current}`}>
+                <Grid key={product.slug.current} md={4} style={{textAlign: "center", width: "50%", justifyContent: "center", alignItems: "center" }}>
 
-                    <div className="card card-1">
-
-                      
-                        <div className="top">
-                          <Image fill key={product.slug.current} sx={{ width: "100%" }} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
-                        </div>
-                      
-
-                        <div className="bottom">
-                          <p>
-                            {product.name}
-                          </p>
-                        </div>
-
+                  <Link key={product.slug.current} style={{ cursor: "pointer", textDecoration: "none", display:"flex"}} href={`/product/${product.slug.current}`}>
+                    <div className="card card-1" style={{ width: "90%", textAlign:"center"}}>
+                      <div className="top">
+                        <Image height={500} width={400} key={product.slug.current} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
+                      </div>
+                      <div className="bottom" >
+                        <p>
+                          {product.name}
+                        </p>
+                      </div>
                     </div>
                   </Link>
-
                   <NoSsr>
-                    <div className="Buttons" style={{marginTop: "-3%", marginBottom: "4%"}}>
-                      <Button variant="contained" color="success" type="button" style={{ cursor: 'pointer' }} onClick={handleAddToCart}>
-                        ADD TO CART
-                      </Button>
+                    <div className="Buttons" style={{marginTop: "-3%", marginBottom: "10%", }}>
+                    <Button id={product.slug.current} variant="contained" color="success" type="button" style={{ cursor: 'pointer', width: "auto" }} onClick={() => handleAddToCart(product)}>
+                      ADD TO CART
+                    </Button>
                     </div>
                   </NoSsr>
-                  
                 </Grid>
               )
             })}
