@@ -82,44 +82,46 @@ const Order = () => {
             <Grid item xs={12}>
 
             <FileUpload 
-    getBase64={false}
-    multiFile={true}
-    disabled={false}
-    title="Upload pictures"
-    header="Drag and drop image here"
-    leftLabel="or"
-    buttonLabel="click here"
-    buttonRemoveLabel="Remove all"
-    maxFileSize={10}
-    maxUploadFiles={0}
-    maxFilesContainerHeight={357}
-    acceptedType={'image/*'}
-    allowedExtensions={['jpg', 'jpeg']}
-    onFilesChange={handleFilesChange}
-    onError={handleFileUploadError}
-    imageSrc={'path/to/custom/image'}
-    BannerProps={{ elevation: 0, variant: "outlined" }}
-    showPlaceholderImage={false}
-    PlaceholderGridProps={{ md: 4 }}
-    LabelsGridProps={{ md: 8 }}
-    onContextReady={context => {
-      // access to component context here
-    }}
-    ContainerProps={{
-      elevation: 0,
-      variant: "outlined",
-      sx: { p: 1 }
-    }}
-    PlaceholderImageDimension={{
-      xs: { width: 128, height: 128 },
-      sm: { width: 128, height: 128 },
-      md: { width: 164, height: 164 },
-      lg: { width: 256, height: 256 }
-    }}
-  />
+              getBase64={false}
+              multiFile={true}
+              disabled={false}
+              title="Upload pictures"
+              header="Drag and drop image here"
+              leftLabel="or"
+              buttonLabel="click here"
+              buttonRemoveLabel="Remove all"
+              maxFileSize={10}
+              maxUploadFiles={0}
+              maxFilesContainerHeight={357}
+              acceptedType={'image/*'}
+              allowedExtensions={['jpg', 'jpeg']}
+              onFilesChange={handleFilesChange}
+              onError={handleFileUploadError}
+              imageSrc={'path/to/custom/image'}
+              BannerProps={{ elevation: 0, variant: "outlined" }}
+              showPlaceholderImage={false}
+              PlaceholderGridProps={{ md: 4 }}
+              LabelsGridProps={{ md: 8 }}
+              onContextReady={context => {
+                // access to component context here
+              }}
+              ContainerProps={{
+                elevation: 0,
+                variant: "outlined",
+                sx: { p: 1 }
+              }}
+              PlaceholderImageDimension={{
+                xs: { width: 128, height: 128 },
+                sm: { width: 128, height: 128 },
+                md: { width: 164, height: 164 },
+                lg: { width: 256, height: 256 }
+              }}
+            />
+
             <Button type="submit" variant="contained" color="primary">
                 Send message
-              </Button>
+            </Button>
+            
             </Grid>
           </Grid>
         </form>
