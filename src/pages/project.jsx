@@ -4,6 +4,9 @@ import Link from "next/link";
 import { TextField, Box, Container, Grid, ButtonGroup, Button } from "@mui/material";
 import { useStateContext } from '../../context/StateContext';
 import Carousel from 'react-material-ui-carousel';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+
 
 
 const Project = ({ projects }) => {
@@ -18,7 +21,20 @@ const Project = ({ projects }) => {
         return (
           <Grid key={project.slug.current} container spacing={2}>
             <Grid item xs={12} md={6}>
-              <Carousel>
+            <Carousel
+                indicatorIconButtonProps={{
+                  style: {
+                    color: "white"
+                  }
+                }}
+                navButtonsProps={{
+                  style: {
+                    backgroundColor: "white",
+                  }
+                }}
+                NextIcon={<KeyboardArrowRight />}
+                PrevIcon={<KeyboardArrowLeft />}
+              >
                 {images.map((image, index) => (
                   <img key={index} src={image.url} alt={image.alt} style={{ width: "100%" }} />
                 ))}
