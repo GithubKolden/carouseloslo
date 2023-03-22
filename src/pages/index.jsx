@@ -4,18 +4,22 @@ import { Grid, Box, useTheme } from '@mui/material';
 import { client, urlFor } from '../../lib/client';
 
 
-const Home = ({ items }) => {
+const Home = ({ backgrounds, logos }) => {
   const theme = useTheme();
+
+  console.log(logos.logo);
 
   return (
     <Grid container>
-      {items?.map((item) => {
-        const images = item.image && item.image.map((image) => ({
+      {backgrounds?.map((background) => {
+        const images = background.image && background.image.map((image) => ({
           url: urlFor(image).url(),
-          alt: item.slug.current
+          alt: background.slug.current
         }));
+
+          
         return (
-          <Grid item xs={12} key={item.slug.current}>
+          <Grid background xs={12} key={background.slug.current}>
             {images.map((image, index) => (
               <div
                 key={index}
@@ -33,30 +37,46 @@ const Home = ({ items }) => {
                     padding: `${theme.spacing(0)} ${theme.spacing(5)}`,
                   },
                 }}
-              >
-                <Image
+              > 
+              
+                  {logos?.map((image, index) => (
+                    <Box
+                      component="img"
+                      style={{ maxWidth: '100%', maxHeight: '100%' }}
+                      src={urlFor(image.logo[0])}
+                      alt="product images"
+                      key={image.logo[0]}
+                    />
+                  ))}
+                
+                {/*<Image
                   src={LOGO}
                   alt="Logo"
                   style={{
                     width: '100%', // adjust size as needed
                   }}
-                />
+                />*/}
               </div>
             ))}
           </Grid>
         );
       })}
+
     </Grid>
   );
 };
 export const getServerSideProps = async () => {
   const ProjectsQuery = `*[_type == "background"] { image, name, slug,  }`;
-  const items = await client.fetch(ProjectsQuery);
+  const backgrounds = await client.fetch(ProjectsQuery);
+
+  const logoQuery = `*[_type == "home"] { logo, name, slug,  }`;
+  const logos = await client.fetch(logoQuery);
 
   return {
-    props: { items, }
+    props: { backgrounds, logos, }
   }
 };
+
 export default Home;
 
 {/*<Box
