@@ -2,7 +2,7 @@ import { Container, Grid, Box, Typography } from '@mui/material';
 
 const About = () => {
   return (
-    <Container>
+    <Container  id="responsive-container">
 
       <Grid container justifyContent='center'>
         <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: "2%"}}>

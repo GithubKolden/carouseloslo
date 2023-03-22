@@ -21,7 +21,7 @@ const ProductDetails = ({ product }) => {
     }
   };
   return (
-    <Container style={{ marginTop: '50px', color: '#494949' }}>
+    <Container style={{ color: '#494949', marginTop: "7%" }}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <Box textAlign="center" style={{ maxWidth: '100%', maxHeight: '100%' }}>

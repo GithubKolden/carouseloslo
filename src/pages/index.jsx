@@ -19,18 +19,12 @@ const Home = ({ backgrounds, logos }) => {
               <div
                 key={index}
                 style={{
+                  position: "absoulte",
                   backgroundImage: `url(${image.url})`,
                   backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  height: '100vh',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: `${theme.spacing(0)} ${theme.spacing(10)}`, // responsive padding
-                  textAlign: 'center', // center align text on small screens
-                  [theme.breakpoints.down('sm')]: { // apply styles for small screens
-                    padding: `${theme.spacing(0)} ${theme.spacing(5)}`,
-                  },
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: 'center center',
+                  height: '100vh'
                 }}
               > 
               

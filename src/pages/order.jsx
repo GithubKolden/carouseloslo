@@ -37,7 +37,7 @@ const Order = () => {
   const form = useRef();
 
   return (
-    <section>
+    <section id="responsive-container">
       <div className="container">
         <form ref={form} onSubmit={sendEmail}>
           <Grid container spacing={2} justify="center">

@@ -31,7 +31,7 @@ const Navigationbar = () => {
   })
   */
   return (
-    <AppBar position="sticky" elevation={0} sx={{ backgroundColor: 'white' }}>
+    <AppBar position="fixed" elevation={0} sx={{ backgroundColor: 'white' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           

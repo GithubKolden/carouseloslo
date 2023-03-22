@@ -11,7 +11,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 const Project = ({ projects }) => {
   return (
-    <Container  style={{borderStyle: "none", paddingTop: "2%"}}>
+    <Container id="responsive-container" style={{borderStyle: "none"}}>
       {projects?.map((project) => {
         const images = project.image && project.image.map(image => ({
           url: urlFor(image).url(),
@@ -19,7 +19,7 @@ const Project = ({ projects }) => {
         }));
 
         return (
-          <Grid key={project.slug.current} container spacing={2}>
+          <Grid key={project.slug.current} container spacing={2} style={{ marginTop: "7%" }}>
             <Grid item xs={12} md={6}>
             <Carousel
                 indicatorIconButtonProps={{

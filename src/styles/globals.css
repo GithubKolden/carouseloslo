@@ -60,7 +60,7 @@ border-color: black;
 
 
 
-/* WHEN SCREENSIZE IS LESS THAN PARAMETER PROPERTIES WILL APPLY/OVERWRITE */
+/* MOBIL */
 @media screen and (max-width: 1000px) {
   .card {
     background: #fff;
@@ -72,8 +72,12 @@ border-color: black;
     width: 120px;
     overflow: hidden;
   }
+  #responsive-container {
+    margin-top: 10%;
+  }
 }
 
+/* PC */
 @media screen and (min-width: 1000px) {
   .card {
     background: #fff;
@@ -98,6 +102,9 @@ border-color: black;
     top: 50%;
     left: 12.5%;
     transform: translateY(-50%);
+  }
+  #responsive-container {
+    margin-top: 3%;
   }
 }
 
