@@ -1,7 +1,3 @@
-import { useEffect } from 'react';
-import logo from './img/LOGO.png';
-import Image from 'next/image';
-import Cart  from './cart';
 import { useStateContext } from '../../context/StateContext';
 import { AiOutlineShopping } from 'react-icons/ai';
 import Link from 'next/link';

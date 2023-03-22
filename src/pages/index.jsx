@@ -1,13 +1,8 @@
-import Image from 'next/image'
-import LOGO from './img/LOGO.png';
 import { Grid, Box, useTheme } from '@mui/material';
 import { client, urlFor } from '../../lib/client';
 
-
 const Home = ({ backgrounds, logos }) => {
   const theme = useTheme();
-
-  console.log(logos.logo);
 
   return (
     <Grid container>
@@ -42,20 +37,13 @@ const Home = ({ backgrounds, logos }) => {
                   {logos?.map((image, index) => (
                     <Box
                       component="img"
-                      style={{ maxWidth: '100%', maxHeight: '100%' }}
+                      style={{ maxWidth: '100%', maxHeight: '100%', position: "absolute", margin: "0", top: "50%", transform: "translateY(-50%)"}}
                       src={urlFor(image.logo[0])}
                       alt="product images"
                       key={image.logo[0]}
                     />
                   ))}
-                
-                {/*<Image
-                  src={LOGO}
-                  alt="Logo"
-                  style={{
-                    width: '100%', // adjust size as needed
-                  }}
-                />*/}
+
               </div>
             ))}
           </Grid>
@@ -76,23 +64,4 @@ export const getServerSideProps = async () => {
     props: { backgrounds, logos, }
   }
 };
-
 export default Home;
-
-{/*<Box
-          sx={{
-
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: `${theme.spacing(0)} ${theme.spacing(10)}`, // responsive padding
-            textAlign: 'center', // center align text on small screens
-            [theme.breakpoints.down('sm')]: { // apply styles for small screens
-              padding: `${theme.spacing(0)} ${theme.spacing(5)}`,
-              
-            },
-          }}
-        >*/}

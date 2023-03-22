@@ -10,7 +10,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <StateContext>
         <Toaster />
         <CssBaseline />
-        <Navbar />
+        <Navbar/>
         <Component {...pageProps} />
     </StateContext>
   )
