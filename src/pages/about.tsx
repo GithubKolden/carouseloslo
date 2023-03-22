@@ -1,44 +1,42 @@
-import React from 'react';
-import { Box, Grid, Typography } from '@mui/material';
-
+import { Container, Grid, Box, Typography } from '@mui/material';
 
 const About = () => {
   return (
-  
-    <Grid container>
-      <Grid item xs={12}>
-        <Box
-          sx={{
-            backgroundImage: 'url("https://www.pngmagic.com/product_images/eCommerce-website-banner-background.jpg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '100vh',
-            display: 'flex',
-            
-           
-          }}
-        >
-    <Grid container spacing={2}>
-      <Grid item xs={12} sm={6}>
-        <img src="https://melkoghonning.no/wp-content/uploads/2020/09/carousel-hovedbilde.jpg" alt="Your Image" style={{ maxWidth: '100%', marginTop: "5%", marginLeft: "1%" }} />
-      </Grid>
-      <Grid item xs={12} sm={6}>
-        <Typography variant="h4" gutterBottom marginTop={'5%'} textAlign={'center'}>
-          About Our Website
-        </Typography>
-        <Typography variant="body1" textAlign={'center'}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis urna ut ligula consequat luctus. 
-          Aenean in magna nec risus malesuada ultricies. Sed ut justo libero. 
-          Nam sagittis nisl ut velit pretium, a semper orci feugiat. Sed lacinia lobortis faucibus. 
-          Sed luctus interdum aliquam. 
-        </Typography>
-      </Grid>
-    </Grid>
-    </Box>
-    </Grid>
-    </Grid>
-    
-  );
-};
+    <Container>
 
+      <Grid container justifyContent='center'>
+        <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: "2%"}}>
+          <h1>About</h1>
+        </Box>
+      </Grid>
+
+      <Grid container justifyContent='center' spacing={2} style={{ border: 'none', color: 'red', position: 'relative'}}>
+
+        <Grid item xs={12} sm={6}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', borderStyle: "none", position: 'relative' }}>
+            <img src='https://www.1800flowers.com/blog/wp-content/uploads/2017/03/single-red-rose.jpg' alt='' style={{ maxWidth: '100%'}} />
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <Box id="contact-box-1" sx={{ justifyContent: 'center', borderStyle: "none" }}>
+            <Typography variant='h4' gutterBottom textAlign={'center'}>
+              Contact information
+            </Typography>
+            <Typography variant = 'body1' textAlign={'center'} style={{textDecoration: 'underline', marginTop: '1rem'}}>
+              E-post: carousel.oslo@hotmail.com
+            </Typography>
+            <Typography variant = 'body1' textAlign={'center'} style={{textDecoration: 'underline', marginTop: '1rem'}}>
+            Tlf: 12345678
+            </Typography>
+            <Typography variant = 'body1' textAlign= {'center'} style={{textDecoration: 'underline', marginTop: '1rem'}}>
+            Adresse: 1621 Gressvik, Hurrødåsen 10
+            </Typography>
+          </Box>
+        </Grid>
+
+      </Grid>
+    </Container>
+  );
+}
 export default About;

@@ -76,15 +76,29 @@ border-color: black;
 
 @media screen and (min-width: 1000px) {
   .card {
-  background: #fff;
-  border-radius: 3px;
-  display: inline-block;
-  height: 300px;
-  margin: 1rem;
-  position: relative;
-  width: 290px;
-  overflow: hidden;
-}
+    background: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    height: 300px;
+    margin: 1rem;
+    position: relative;
+    width: 290px;
+    overflow: hidden;
+  }
+  #contact-box-1 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 62%;
+    transform: translateY(-50%);
+  }
+  #contact-box-2 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 12.5%;
+    transform: translateY(-50%);
+  }
 }
 
 
