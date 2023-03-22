@@ -3,14 +3,15 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useStateContext } from '../../../context/StateContext';
 import Carousel from 'react-material-ui-carousel';
 import { Box, Container } from '@mui/system';
-import { Button } from '@mui/material';
+import { Button, Grid} from '@mui/material';
 import NoSsr from '@mui/material/NoSsr';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 import { useState, useEffect } from "react";
 
-
 const ProductDetails = ({ product }) => {
-  const { image, name, details, price, InStock , ferskhet} = product;
+  const { image, name, details, price, InStock, ferskhet } = product;
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
   const [isInStock, setIsInStock] = useState(InStock);
 
@@ -19,65 +20,47 @@ const ProductDetails = ({ product }) => {
       onAdd(product, qty);
     }
   };
-
   return (
-    <NoSsr>
-      <Container
-        style={{
-          marginTop: '50px',
-          color: '#494949',
-          maxWidth: '525px',
-          maxHeight: '40vh',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Box>
-          <Carousel>
-            {image?.map((item, index) => {
-              return ( 
-                <Box
-                  component="img"
-                  style={{ maxWidth: '525px', maxHeight: '40vh' }}
-                  src={urlFor(item)}
-                  alt="product images"
-                  key={item}
-                />
-              );
-            })}
-          </Carousel>
-
-          <div>
+    <Container style={{ marginTop: '50px', color: '#494949' }}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <Box textAlign="center" style={{ maxWidth: '100%', maxHeight: '100%' }}>
+          <Carousel
+                indicatorIconButtonProps={{
+                  style: {
+                    color: "white"
+                  }
+                }}
+                navButtonsProps={{
+                  style: {
+                    backgroundColor: "white",
+                  }
+                }}
+                NextIcon={<KeyboardArrowRight />}
+                PrevIcon={<KeyboardArrowLeft />}
+              >
+              {image?.map((item, index) => {
+                return (
+                  <Box
+                    component="img"
+                    style={{ maxWidth: '100%', maxHeight: '100%' }}
+                    src={urlFor(item)}
+                    alt="product images"
+                    key={item}
+                    
+                  />
+                );
+              })}
+            </Carousel>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Box>
             <h1>{name}</h1>
             <p style={{ paddingTop: '15px', paddingBottom: '25px' }}>
               {details}
             </p>
             <p style={{ fontWeight: 'bold' }}>{price},- kr</p>
-
-            <div
-              className="quantity-desc"
-              style={{ paddingTop: '10px', paddingBottom: '15px' }}
-            >
-              <Button
-                variant="contained"
-                size="small"
-                onClick={decQty}
-                style={{ cursor: 'pointer' }}
-              >
-                <AiOutlineMinus />
-              </Button>
-              <span style={{ padding: '10px' }} className="num">
-                {qty}
-              </span>
-              <Button
-                variant="contained"
-                size="small"
-                onClick={incQty}
-                style={{ cursor: 'pointer' }}
-              >
-                <AiOutlinePlus />
-              </Button>
-            </div>
 
             <div className="Buttons">
               <Button
@@ -91,10 +74,10 @@ const ProductDetails = ({ product }) => {
                 {isInStock ? 'Add to Cart' : 'Out of Stock'}
               </Button>
             </div>
-          </div>
-        </Box>
-      </Container>
-    </NoSsr>
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

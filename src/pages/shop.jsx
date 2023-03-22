@@ -3,26 +3,14 @@ import { client, urlFor } from '../../lib/client';
 import Link from "next/link";
 import { TextField, Box, Container, Grid, ButtonGroup, Button } from "@mui/material";
 import { useStateContext } from '../../context/StateContext';
-import NoSsr from '@mui/material/NoSsr';
 import Image from "next/image";
 
 const Shop = ({ products }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(products);
   const { image, name, details, price, InStock , ferskhet} = products;
-  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
   const [isInStock, setIsInStock] = useState(InStock);
 
-  const handleAddToCart = (product) => {
-    if (product.InStock) {
-      if (qty) {
-        onAdd(product, qty);
-      } else {
-        console.error('Quantity is not defined');
-      }
-    }
-  };
-  
 
   const handleFilter = (filterTerm) => {
     if (filterTerm === "All") {
@@ -82,13 +70,6 @@ const Shop = ({ products }) => {
                       </div>
                     </div>
                   </Link>
-                  <NoSsr>
-                    <div className="Buttons" style={{marginTop: "-3%", marginBottom: "10%", }}>
-                    <Button id={product.slug.current} variant="contained" color="success" type="button" style={{ cursor: 'pointer', width: "auto" }} onClick={() => handleAddToCart(product)}>
-                      ADD TO CART
-                    </Button>
-                    </div>
-                  </NoSsr>
                 </Grid>
               )
             })}
