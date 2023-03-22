@@ -14,16 +14,16 @@ const About = () => {
             backgroundPosition: 'center',
             height: '100vh',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            
+           
           }}
         >
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
-        <img src="https://melkoghonning.no/wp-content/uploads/2020/09/carousel-hovedbilde.jpg" alt="Your Image" style={{ maxWidth: '100%', marginTop: "10%", marginLeft: "1%" }} />
+        <img src="https://melkoghonning.no/wp-content/uploads/2020/09/carousel-hovedbilde.jpg" alt="Your Image" style={{ maxWidth: '100%', marginTop: "5%", marginLeft: "1%" }} />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <Typography variant="h4" gutterBottom marginTop={'10%'} textAlign={'center'}>
+        <Typography variant="h4" gutterBottom marginTop={'5%'} textAlign={'center'}>
           About Our Website
         </Typography>
         <Typography variant="body1" textAlign={'center'}>
