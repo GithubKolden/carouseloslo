@@ -1,37 +1,36 @@
 import { client, urlFor } from "../../lib/client";
-import { Box } from "@mui/material";
-import Home from "./index"
-
-
 const background = ({backgrounds}) => {
           
   return (
     <div container>
-    {backgrounds?.map((background) => {
-      const images = background.image && background.image.map((image) => ({
-        url: urlFor(image).url(),
-        alt: background.slug.current
-      }));
-      return(
-    <div background xs={12} key={background.slug.current}>
-      {images.map((image, index) => (
-        <div
-          key={index}
-          style={{
-            position: "absoulte",
-            backgroundImage: `url(${image.url})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: 'center center',
-            height: '100vh'
-          }}
-        />
-      ))} 
-    </div>
-    );
-  })}
-   </div> 
-   )};
+      {backgrounds?.map((background) => {
+        const images = background.image && background.image.map((image) => ({
+          url: urlFor(image).url(),
+          alt: background.slug.current
+        }));
+        return (
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+            {images.map((image, index) => (
+              <div
+                key={index}
+                style={{
+                  position: "absolute",
+                  backgroundImage: `url(${image.url})`,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: 'center center',
+                  backgroundAttachment: 'fixed',
+                  height: '100%',
+                  width: '100%',
+                }}
+              />
+            ))} 
+          </div>
+        );
+      })}
+    </div> 
+  );
+  };
         
     export const getServerSideProps = async () => {
       const backgroundsQuery = `*[_type == "background"] { image, name, slug }`;
