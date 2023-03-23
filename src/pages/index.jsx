@@ -12,7 +12,6 @@ const Home = ({ backgrounds, logos }) => {
           alt: background.slug.current
         }));
 
-          
         return (
           <Grid background xs={12} key={background.slug.current}>
             {images.map((image, index) => (

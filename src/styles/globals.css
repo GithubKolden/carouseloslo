@@ -341,4 +341,8 @@ padding: 20px 10px;
   cursor: pointer;
 }
 
-
+#navbar {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+}
