@@ -9,10 +9,10 @@ const background = ({backgrounds}) => {
           alt: background.slug.current
         }));
         return (
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+          <div key={background} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
             {images.map((image, index) => (
               <div
-                key={image}
+                key={index}
                 style={{
                   position: "absolute",
                   backgroundImage: `url(${image.url})`,
