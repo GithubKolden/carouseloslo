@@ -1,9 +1,12 @@
 import { Container, Grid, Box, Typography } from '@mui/material';
+import { client } from '../../lib/client';
+import Background from "./background"
 
-const Contact = () => {
+const Contact = ({backgrounds}) => {
   return (
-    <Container id="responsive-container">
-
+    <Container >
+      <Background backgrounds={backgrounds} />
+      <div id="responsive-container" style={{position: "absolute"}}>
       <Grid container justifyContent='center'>
         <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: "2%"}}>
           <h1>Contact</h1>
@@ -57,7 +60,18 @@ const Contact = () => {
         </Grid>
 
       </Grid>
+      </div>
     </Container>
   );
 }
+
+export const getServerSideProps = async () => {
+
+  const backgroundsQuery = `*[_type == "background"] { image, name, slug }`;
+  const backgrounds = await client.fetch(backgroundsQuery)
+
+  return {
+    props: { backgrounds }
+  }
+};
 export default Contact;
