@@ -1,14 +1,12 @@
 import { Container, Grid, Box, Typography } from '@mui/material';
 import { client, urlFor } from '../../lib/client';
 
-
 const About = ({abouts}) => {
 //const { image, contact, email, telefon, adresse} = abouts;
-
-console.log(abouts[0].adresse)
+//console.log(abouts[0].adresse)
   
   return (
-    <Container  id="responsive-container">
+    <Container id="responsive-container-about">
       
       <Grid container justifyContent='center'>
         <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: "2%"}}>

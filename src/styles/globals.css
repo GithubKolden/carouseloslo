@@ -72,8 +72,23 @@ border-color: black;
     width: 120px;
     overflow: hidden;
   }
-  #responsive-container {
+  #responsive-container-shop {
     margin-top: 10%;
+  }
+  #responsive-container-about {
+    margin-top: 10%;
+  }
+  #responsive-container-order {
+    margin-top: 12%;
+  }
+  #responsive-container-project {
+    margin-top: 13%;
+  }
+  #responsive-container-contact {
+    margin-top: 15%;
+  }
+  #responsive-container-slug {
+    margin-top: 20%;
   }
 }
 
@@ -103,8 +118,23 @@ border-color: black;
     left: 12.5%;
     transform: translateY(-50%);
   }
-  #responsive-container {
+  #responsive-container-shop {
     margin-top: 3%;
+  }
+  #responsive-container-about {
+    margin-top: 6%;
+  }
+  #responsive-container-order {
+    margin-top: 6%;
+  }
+  #responsive-container-project {
+    margin-top: 6%;
+  }
+  #responsive-container-contact {
+    margin-top: 6%;
+  }
+  #responsive-container-slug {
+    margin-top: 6%;
   }
 }
 

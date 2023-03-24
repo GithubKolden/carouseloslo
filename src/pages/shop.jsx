@@ -22,7 +22,7 @@ const Shop = ({ products }) => {
 
   return (
     <div>
-      <Container id="responsive-container" direction="column" justify="center" style={{ borderStyle: "none" }}>
+      <Container id="responsive-container-shop" direction="column" justify="center" style={{ borderStyle: "none" }}>
 
         <Grid container direction="column" alignItems="center" justify="center" style={{borderStyle: "none"}}>
           <TextField sx={{ my: 5 }} type="search" id="outlined-basic" label="Search" placeholder="Productname" variant="outlined" aria-label="Search" aria-describedby="search-addon" onChange={event => setSearchTerm(event.target.value)} />

@@ -11,7 +11,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 const Project = ({ projects }) => {
   return (
-    <Container id="responsive-container" style={{borderStyle: "none"}}>
+    <Container id="responsive-container-project" style={{borderStyle: "none"}}>
       {projects?.map((project) => {
         const images = project.image && project.image.map(image => ({
           url: urlFor(image).url(),
