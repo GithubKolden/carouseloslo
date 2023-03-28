@@ -5,8 +5,8 @@ import Background from "./background"
 const About = ({ abouts, backgrounds }) => {
   return (
     <>
-      <Background backgrounds={backgrounds} style={{ zIndex: -1 }} />
-      <Box sx={{ position: 'absolute', top: '70px', left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex: 1 }}>
+      <Background backgrounds={backgrounds} style={{ zIndex: -1}} />
+      <Box sx={{ position: 'absolute', top: '70px', bottom: "70px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex: 1 }}>
         <Typography variant='h2' gutterBottom>About</Typography>
       </Box>
       <Container sx={{ position: 'relative', display: 'flex', justifyContent: 'center', marginTop: '150px' }}>

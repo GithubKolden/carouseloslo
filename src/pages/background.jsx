@@ -14,7 +14,7 @@ const background = ({backgrounds}) => {
               <div
                 key={index}
                 style={{
-                  position: "absolute",
+                  position: "fixed",
                   backgroundImage: `url(${image.url})`,
                   backgroundSize: 'cover',
                   backgroundRepeat: "no-repeat",
