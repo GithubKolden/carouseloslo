@@ -6,7 +6,7 @@ const Contact = ({backgrounds}) => {
   return (
     <div style={{position: "relative", display: "flex", justifyContent: "center"}}>
       <Background backgrounds={backgrounds} style={{zIndex: -1}}/>
-      <div id="responsive-container-contact" style={{ width: "80%", position: 'relative' }}>
+      <div id="responsive-container-contact" style={{ width: "60%", position: 'relative' }}>
         <Grid container justifyContent='center'>
           <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: "2%"}}>
               <h1>Contact</h1>

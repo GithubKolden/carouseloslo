@@ -7,7 +7,7 @@ const About = ({ abouts, backgrounds }) => {
     <>
       <Background backgrounds={backgrounds} style={{ zIndex: -1}} />
       <Box sx={{ position: 'absolute', top: '70px', bottom: "70px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex: 1 }}>
-        <Typography variant='h2' gutterBottom>About</Typography>
+        <Typography variant='h3' gutterBottom>About</Typography>
       </Box>
       <Container sx={{ position: 'relative', display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(5px)', zIndex: -1 }} />
