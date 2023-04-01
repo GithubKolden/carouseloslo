@@ -20,10 +20,11 @@ const Project = ({ projects, backgrounds }) => {
   return (
     <div>
       <Background backgrounds={backgrounds} style={{ zIndex: -1 }} />
-      <Box sx={{ position: 'absolute', top: '70px', bottom: "70px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex: 1 }}>
-        <Typography variant='h3' gutterBottom>Projects</Typography>
+      <Box sx={{ position: 'absolute', top: '70px', bottom: "70px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0" }}>
+        <Typography variant='h3' gutterBottom style={{ pointerEvents: "none" }}>Projects</Typography>
       </Box>
-      <Container id="responsive-container-project" style={{ borderStyle: "none", marginTop: '135px' }} >
+      <Box sx={{marginTop: "135px"}}>
+      <Container id="responsive-container-project" style={{ borderStyle: "none" }} >
 
         {projects?.map((project) => {
           const images = project.image && project.image.map(image => ({
@@ -32,7 +33,7 @@ const Project = ({ projects, backgrounds }) => {
           }));
 
           return (
-            <FrostedBox key={project.slug.current} style={{ marginTop: "7%" }}>
+            <FrostedBox key={project.slug.current} style={{ marginTop: "4%", zIndex: 1 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                   <Carousel
@@ -62,6 +63,8 @@ const Project = ({ projects, backgrounds }) => {
           );
         })}
       </Container>
+      </Box>
+
     </div>
 
   );
