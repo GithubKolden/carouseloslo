@@ -7,6 +7,10 @@
   color: black;
 }
 
+body  {
+  background-color: white;
+}
+
 
 
 /* BACKGROUND IMAGE 
@@ -375,4 +379,12 @@ padding: 20px 10px;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
   -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+}
+
+.next-error-h1 {
+  color: white;
+}
+
+.next-error-h2 {
+  color: white;
 }
