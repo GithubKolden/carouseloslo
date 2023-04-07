@@ -24,7 +24,7 @@ const Project = ({ projects, backgrounds }) => {
         <Typography variant='h3' gutterBottom style={{ pointerEvents: "none" }}>Projects</Typography>
       </Box>
       <Box sx={{marginTop: "135px"}}>
-      <Container id="responsive-container-project" style={{ borderStyle: "none" }} >
+      <Container id="responsive-container-project" style={{ borderStyle: "none" , marginBottom:"2%"}} >
 
         {projects?.map((project) => {
           const images = project.image && project.image.map(image => ({

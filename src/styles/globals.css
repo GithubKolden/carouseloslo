@@ -94,6 +94,9 @@ border-color: black;
   #responsive-container-slug {
     margin-top: 20%;
   }
+  #contact_top_right {
+    min-height: 30vh;
+  }
 }
 
 /* PC */
@@ -135,11 +138,16 @@ border-color: black;
     margin-top: 6%;
   }
   #responsive-container-contact {
-    margin-top: 6%;
+    margin-top: 4%;
   }
   #responsive-container-slug {
     margin-top: 6%;
   }
+
+   #contact_top_right {
+    min-height: 49.7vh;
+  }
+  
 }
 
 

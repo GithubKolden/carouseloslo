@@ -1,9 +1,110 @@
 import { Container, Grid, Box, Typography } from '@mui/material';
-import { client } from '../../lib/client';
+import { client, urlFor } from '../../lib/client';
 import Background from "./background"
 
-const Contact = ({backgrounds}) => {
+const Contact = ({contacts, backgrounds}) => {
   return (
+    <div style={{position: "relative", display: "flex", justifyContent: "center", marginBottom:"2%"}}>
+      <Background backgrounds={backgrounds} style={{zIndex: -1}}/>
+      <div id="responsive-container-contact" style={{ width: "80%", position: 'relative' }}>
+        <Grid container justifyContent='center'>
+          <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: "0%"}}>
+            <h1>Contact</h1>
+          </Box>
+        </Grid>
+        <div style={{ background: 'rgba(255, 255, 255, 0.8)', padding: '40px', borderRadius: '10px', marginTop: '20px', marginLeft: '-10px', marginRight: '-10px' }}>
+          {contacts?.map((item, index)=> (
+            <Grid container spacing={2} key={index}>
+              <Grid item xs={12} md={6}>
+                <Box id="contact_top_left" style={{background: 'rgba(0, 0, 0, 0.1)'}}>
+                  <img src={urlFor(item.image[0]).url()} style={{ width: '100%', marginBottom:"-1%"}} />
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={6}>
+              <Box id="contact_top_right" style={{
+                textAlign: "center",
+                background: 'rgba(0, 0, 0, 0.1)',
+                padding:"5%",
+                position: 'relative', /* Set position property to relative on parent element */
+              }}>
+                <div style={{ 
+                  position: 'absolute', /* Set position property to absolute on child element */
+                  top: '50%', /* Set top property to 50% */
+                  left: '50%', /* Set left property to 50% */
+                  transform: 'translate(-50%, -50%)', /* Use translate to center the element */
+                }}>
+                  <Typography variant="h4">Contact Information</Typography>
+                  <Typography variant="h6">{item.email}</Typography>
+                  <Typography variant="h6">{item.telefon}</Typography>
+                  <Typography variant="h6">{item.adresse}</Typography>
+                </div>
+              </Box>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Box style={{ textAlign:"center", background: 'rgba(0, 0, 0, 0.1)',minHeight:"51.5vh", padding:"10px"}}>
+                  <Typography variant="h4" style={{marginBottom:"2%"}}>General Information</Typography>
+                  <Typography variant="body1">{item.information}</Typography>
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Box style={{ background: 'rgba(0, 0, 0, 0.1)'}}>
+                  <img src={urlFor(item.image[1]).url()} style={{ height: 'auto', width: '100%', maxWidth: '500px' }} />
+                </Box>
+              </Grid>
+            </Grid>
+          ))}
+        </div>
+      </div>
+      <style jsx>{`
+        @media (max-width: 600px) {
+          #contact_top_box {
+            flex-direction: column;
+          }
+          #contact_bot_box {
+            flex-direction: column;
+          }
+          #contact_top_box img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+          }
+          #contact_bot_box img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+          }
+          #contact_top_right {
+            minHeight: "30vh";
+            background:red;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+export const getServerSideProps = async () => {
+  const ContactQuery = `*[_type == "contact"] { image, email, telefon, adresse, information, slug,  }`;
+  const contacts = await client.fetch(ContactQuery);
+
+  const backgroundsQuery = `*[_type == "background"] { image, name, slug }`;
+  const backgrounds = await client.fetch(backgroundsQuery)
+
+  return {
+    props: { contacts, backgrounds }
+  }
+}
+
+export default Contact;
+
+
+
+
+
+
+
+
+/*
     <div style={{position: "relative", display: "flex", justifyContent: "center"}}>
       <Background backgrounds={backgrounds} style={{zIndex: -1}}/>
       <div id="responsive-container-contact" style={{ width: "60%", position: 'relative' }}>
@@ -61,17 +162,4 @@ const Contact = ({backgrounds}) => {
 
           </Grid>
         </div>
-    </div>
-  );
-}
-
-export const getServerSideProps = async () => {
-
-  const backgroundsQuery = `*[_type == "background"] { image, name, slug }`;
-  const backgrounds = await client.fetch(backgroundsQuery)
-
-  return {
-    props: { backgrounds }
-  }
-};
-export default Contact;
+    </div>*/
