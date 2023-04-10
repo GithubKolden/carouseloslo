@@ -6,20 +6,34 @@ import Image from 'next/image';
 const Home = ({ logos, backgrounds }) => {
   const theme = useTheme();
   return (
-      <div container> 
-          <Background backgrounds={backgrounds} />
-        {logos?.map((image, index) => (
+    <div container> 
+      <Background backgrounds={backgrounds} />
+      {logos?.map((image, index) => (
+        <div style={{
+          paddingTop: `${(100 * 250) / 1500}%`, /* set the aspect ratio to 250:1500 */
+          maxWidth: '100%',
+          height: 0, /* make the height 0 to avoid distortion */
+          margin: "0",
+          top: "50%",
+        }}>
           <Image
-            height={150}
-            width={1500}
-            component="img"
-            style={{ maxWidth: '100%', maxHeight: '90%', position: "fixed", margin: "0", top: "50%", transform: "translateY(-50%)"}}
+            layout="fill"
+            objectFit="contain"
             src={urlFor(image.logo[0]).url()}
             alt="product images"
             key={image.logo[0]}
           />
-        ))}
-      </div>
+        </div>
+      ))}
+      <style jsx>{`
+        @media screen and (max-width: ${theme.breakpoints.values.sm}px) {
+          div {
+            height: auto; /* reset the height to auto for smaller screens */
+            padding-top: ${100 / (1500 / 250)}%; /* reset the aspect ratio */
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 
