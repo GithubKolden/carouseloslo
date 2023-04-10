@@ -1,7 +1,7 @@
 import { Grid, Box, useTheme } from '@mui/material';
 import { client, urlFor } from '../../lib/client';
 import Background from './background';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
 const Home = ({ logos, backgrounds }) => {
   const theme = useTheme();
@@ -15,7 +15,7 @@ const Home = ({ logos, backgrounds }) => {
           height: 0, /* make the height 0 to avoid distortion */
           margin: "0",
           top: "50%",
-        }}>
+        }} key="logo">
           <Image
             layout="fill"
             objectFit="contain"
