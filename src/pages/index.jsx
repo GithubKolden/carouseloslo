@@ -10,10 +10,10 @@ const Home = ({ logos, backgrounds }) => {
           <Background backgrounds={backgrounds} />
         {logos?.map((image, index) => (
           <Image
-            height={280}
+            height={150}
             width={1500}
             component="img"
-            style={{ maxWidth: '100%', maxHeight: '100%', position: "absolute", margin: "0", top: "50%", transform: "translateY(-50%)"}}
+            style={{ maxWidth: '100%', maxHeight: '90%', position: "fixed", margin: "0", top: "50%", transform: "translateY(-50%)"}}
             src={urlFor(image.logo[0]).url()}
             alt="product images"
             key={image.logo[0]}

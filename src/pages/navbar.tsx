@@ -1,6 +1,9 @@
 import { useStateContext } from '../../context/StateContext';
 import { AiOutlineShopping } from 'react-icons/ai';
 import Link from 'next/link';
+import { client, urlFor } from '../../lib/client';
+import Bilde from "../img/oo.png"
+
 
 //MATERIAL UI:
 import * as React from 'react';
@@ -8,11 +11,12 @@ import AppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Tooltip, MenuItem, Button, Container, Menu, Typography, IconButton, Toolbar, Box } from '@mui/material/'; 
+import Image from 'next/image';
 
 const pages = ['Home', 'Shop', 'Projects', 'Contact', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const Navigationbar = () => {
+const Navigationbar = ({}) => {
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -20,6 +24,7 @@ const Navigationbar = () => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => { setAnchorElNav(event.currentTarget); };
   const handleCloseNavMenu = () => { setAnchorElNav(null); };
 
+  
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 /*
   useEffect(() => {
@@ -122,30 +127,34 @@ const Navigationbar = () => {
               </MenuItem>
                
             </Menu> 
+            
           </Box>
           {/*LOGO MOBILE:*/}
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
           
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+          <Box sx={{ flexGrow: 0 }}>
+            <Link href = "/">
+            <IconButton
+                sx={{
+                  mr: 6,
+                  mt: 1,
+                  display: { xs: 'flex', md: 'none' },
+                  flexGrow: 1,
+                  color: 'inherit',
+                  backgroundImage:
+                    'url(https://cdn.sanity.io/images/et4hr2p6/production/a6b4450087ae3be885b49851505f18178d8aa23b-1888x313.png?w=2000&fit=max&auto=format)',
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                  width: '170px',
+                  height: '40px',
+                  borderRadius: 0 
+
+                }}
+              ></IconButton>
+            </Link>
+          </Box>
+          
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center'}}>
   <Link href="/" passHref>
     <Button sx={{ color: 'inherit', textDecoration: 'none', mr: 2 }}>
       HOME
@@ -221,4 +230,12 @@ const Navigationbar = () => {
           </button>
 */
 //{showCart && <Cart />}
+
+export const getServerSideProps = async () => {
+  const logoQuery = `*[_type == "home"] { logo, name, slug,  }`;
+  const logos = await client.fetch(logoQuery);
+  return {
+    props: { logos }
+  }
+}
 export default Navigationbar;
