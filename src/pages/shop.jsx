@@ -89,23 +89,3 @@ export const getServerSideProps = async () => {
   }
 }
 export default Shop;
-
-/*
-<Grid container style={{borderStyle: "none"}} justifyContent="center">
-<ButtonGroup variant="contained" aria-label="outlined primary button group">
-
-<Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-  <Button onClick={() => handleFilter("All")}>All</Button>
-</Grid>
-
-<Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-  <Button onClick={() => handleFilter("fersk")}>Fersk</Button>
-</Grid>
-
-<Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-  <Button onClick={() => handleFilter("tørket")}>Tørket</Button>
-</Grid>
-
-</ButtonGroup>
-</Grid>
-*/
