@@ -6,18 +6,16 @@ const Contact = ({contacts, backgrounds}) => {
   return (
     <div style={{position: "relative", display: "flex", justifyContent: "center", marginBottom:"2%"}}>
       <Background backgrounds={backgrounds} style={{zIndex: -1}}/>
-      <div id="responsive-container-contact" style={{ width: "80%", position: 'relative' }}>
+      <div id="responsive-container-contact" style={{ width: "75%", position: 'relative' }}>
         <Grid container justifyContent='center'>
-          <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: "0%"}}>
-            <h1>Contact</h1>
-          </Box>
+          
         </Grid>
         <div style={{ background: 'rgba(255, 255, 255, 0.8)', padding: '40px', borderRadius: '10px', marginTop: '20px', marginLeft: '-10px', marginRight: '-10px' }}>
           {contacts?.map((item, index)=> (
             <Grid container spacing={2} key={index}>
               <Grid item xs={12} md={6}>
-                <Box id="contact_top_left" style={{background: 'rgba(0, 0, 0, 0.1)'}}>
-                  <img src={urlFor(item.image[0]).url()} style={{ width: '100%', marginBottom:"-1%"}} />
+                <Box id="contact_top_left" style={{background: 'rgba(0, 0, 0, 0.1)', widht:"69%", height:"50vh"}}>
+                  <img src={urlFor(item.image[0]).url()} style={{ width:"100%", padding:"2%"}} />
                 </Box>
               </Grid>
               <Grid item xs={12} md={6}>
@@ -26,12 +24,15 @@ const Contact = ({contacts, backgrounds}) => {
                 background: 'rgba(0, 0, 0, 0.1)',
                 padding:"5%",
                 position: 'relative', /* Set position property to relative on parent element */
+                width:"69vh",
+                height:"50vh"
               }}>
                 <div style={{ 
                   position: 'absolute', /* Set position property to absolute on child element */
                   top: '50%', /* Set top property to 50% */
                   left: '50%', /* Set left property to 50% */
                   transform: 'translate(-50%, -50%)', /* Use translate to center the element */
+
                 }}>
                   <Typography variant="h4">Contact Information</Typography>
                   <Typography variant="h6">{item.email}</Typography>
@@ -41,14 +42,14 @@ const Contact = ({contacts, backgrounds}) => {
               </Box>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Box style={{ textAlign:"center", background: 'rgba(0, 0, 0, 0.1)',minHeight:"51.5vh", padding:"10px"}}>
+                <Box style={{ textAlign:"center", background: 'rgba(0, 0, 0, 0.1)',widht:"69vh", height:"50vh", padding:"10px"}}>
                   <Typography variant="h4" style={{marginBottom:"2%"}}>General Information</Typography>
                   <Typography variant="body1">{item.information}</Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} md={6}>
-                <Box style={{ background: 'rgba(0, 0, 0, 0.1)'}}>
-                  <img src={urlFor(item.image[1]).url()} style={{ height: 'auto', width: '100%', maxWidth: '500px' }} />
+                <Box style={{ background: 'rgba(0, 0, 0, 0.1)', textAlign:"center", widht:"69vh"}}>
+                  <img src={urlFor(item.image[1]).url()} style={{ height: 'auto', width: '100%', maxWidth: '500px'}} />
                 </Box>
               </Grid>
             </Grid>
@@ -72,10 +73,6 @@ const Contact = ({contacts, backgrounds}) => {
             width: 100%;
             height: auto;
             margin-top: 20px;
-          }
-          #contact_top_right {
-            minHeight: "30vh";
-            background:red;
           }
         }
       `}</style>

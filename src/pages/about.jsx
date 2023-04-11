@@ -7,9 +7,7 @@ const About = ({ abouts, backgrounds }) => {
   return (
     <>
       <Background backgrounds={backgrounds} style={{ zIndex: -1}} />
-      <Box sx={{ position: 'absolute', top: '70px', bottom: "70px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex: 1 }}>
-        <Typography variant='h3' gutterBottom>About</Typography>
-      </Box>
+      
       <Container sx={{ position: 'relative', display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(5px)', zIndex: -1 }} />
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: '2rem', backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(5px)', borderRadius: '20px', zIndex: 0 }}>
@@ -25,7 +23,8 @@ const About = ({ abouts, backgrounds }) => {
               </Grid>
               <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
                 <Box id="contact-box-1" sx={{ justifyContent: 'center', borderStyle: "none" }}>
-                  <Typography variant='h4'  style={{}}>
+                  <Typography variant='h6' gutterBottom  style={{}}>
+                    <h1 style={{textAlign:"Center", marginBottom:"2%"}}>About description</h1>
                     {item.about}
                   </Typography>
                 </Box>

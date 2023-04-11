@@ -97,6 +97,10 @@ border-color: black;
   #contact_top_right {
     min-height: 30vh;
   }
+  #contact_top_right {
+    height: 30px;
+    
+  }
 }
 
 /* PC */
@@ -115,8 +119,9 @@ border-color: black;
     margin: 0;
     position: absolute;
     top: 50%;
-    left: 62%;
+    left: 52%;
     transform: translateY(-50%);
+    padding: 3%
   }
   #contact-box-2 {
     margin: 0;
