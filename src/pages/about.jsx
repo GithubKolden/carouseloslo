@@ -3,6 +3,7 @@ import { client, urlFor } from '../../lib/client';
 import Background from "./background"
 
 const About = ({ abouts, backgrounds }) => {
+  console.log(abouts)
   return (
     <>
       <Background backgrounds={backgrounds} style={{ zIndex: -1}} />
@@ -24,17 +25,8 @@ const About = ({ abouts, backgrounds }) => {
               </Grid>
               <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
                 <Box id="contact-box-1" sx={{ justifyContent: 'center', borderStyle: "none" }}>
-                  <Typography variant='h4' gutterBottom textAlign={'center'}>
-                    {item.contact}
-                  </Typography>
-                  <Typography variant='body1' textAlign={'center'} style={{ textDecoration: 'underline', marginTop: '1rem' }}>
-                    {item.email}
-                  </Typography>
-                  <Typography variant='body1' textAlign={'center'} style={{ textDecoration: 'underline', marginTop: '1rem' }}>
-                    {item.telefon}
-                  </Typography>
-                  <Typography variant='body1' textAlign={'center'} style={{ textDecoration: 'underline', marginTop: '1rem' }}>
-                    {item.adresse}
+                  <Typography variant='h4'  style={{}}>
+                    {item.about}
                   </Typography>
                 </Box>
               </Grid>
@@ -47,7 +39,7 @@ const About = ({ abouts, backgrounds }) => {
 }
 
 export const getServerSideProps = async () => {
-  const AboutQuery = `*[_type == "about"] { image, contact, email, telefon, adresse, slug,  }`;
+  const AboutQuery = `*[_type == "about"] { image, about, slug,  }`;
   const abouts = await client.fetch(AboutQuery);
 
   const backgroundsQuery = `*[_type == "background"] { image, name, slug }`;
