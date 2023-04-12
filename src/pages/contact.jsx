@@ -6,7 +6,7 @@ const Contact = ({contacts, backgrounds}) => {
   return (
     <div style={{position: "relative", display: "flex", justifyContent: "center", marginBottom:"2%"}}>
       <Background backgrounds={backgrounds} style={{zIndex: -1}}/>
-      <div id="responsive-container-contact" style={{ width: "75%", position: 'relative' }}>
+      <div id="responsive-container-contact" style={{ width: "70%", position: 'relative' }}>
         <Grid container justifyContent='center'>
           
         </Grid>
@@ -24,7 +24,7 @@ const Contact = ({contacts, backgrounds}) => {
                 background: 'rgba(0, 0, 0, 0.1)',
                 padding:"5%",
                 position: 'relative', /* Set position property to relative on parent element */
-                width:"69vh",
+                width:"65vh",
                 height:"50vh"
               }}>
                 <div style={{ 
@@ -40,17 +40,6 @@ const Contact = ({contacts, backgrounds}) => {
                   <Typography variant="h6">{item.adresse}</Typography>
                 </div>
               </Box>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Box style={{ textAlign:"center", background: 'rgba(0, 0, 0, 0.1)',widht:"69vh", height:"50vh", padding:"10px"}}>
-                  <Typography variant="h4" style={{marginBottom:"2%"}}>General Information</Typography>
-                  <Typography variant="body1">{item.information}</Typography>
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Box style={{ background: 'rgba(0, 0, 0, 0.1)', textAlign:"center", widht:"69vh"}}>
-                  <img src={urlFor(item.image[1]).url()} style={{ height: 'auto', width: '100%', maxWidth: '500px'}} />
-                </Box>
               </Grid>
             </Grid>
           ))}

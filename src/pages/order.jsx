@@ -39,6 +39,7 @@ const Order = () => {
   return (
     <section id="responsive-container-order">
       <div className="container">
+        <h1 style={{textAlign:"center", marginBottom:"2%"}}>Custom Order</h1>
         <form ref={form} onSubmit={sendEmail}>
           <Grid container spacing={2} justify="center">
             <Grid item xs={12} sm={6}>
@@ -70,7 +71,7 @@ const Order = () => {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                label="Message"
+                label="Please describe your custom order here"
                 variant="outlined"
                 name="message"
                 required
@@ -85,7 +86,7 @@ const Order = () => {
               getBase64={false}
               multiFile={true}
               disabled={false}
-              title="Upload pictures"
+              title="Optional reference picture upload"
               header="Drag and drop image here"
               leftLabel="or"
               buttonLabel="click here"

@@ -20,8 +20,11 @@ const Project = ({ projects, backgrounds }) => {
   return (
     <div>
       <Background backgrounds={backgrounds} style={{ zIndex: -1 }} />
-      <Box sx={{ position: 'absolute', top: '70px', bottom: "70px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0" }}>
-        <Typography variant='h3' gutterBottom style={{ pointerEvents: "none" }}>Projects</Typography>
+      <Box sx={{ position: 'absolute', top: '40px', bottom: "40px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0" }} >
+        <Typography variant='h3' style={{backgroundColor: "rgba(255, 255, 255, 0.5)",
+  backdropFilter: "blur(10px)",
+  borderRadius: "10px",
+  padding: "2rem",height:"100px"}}>Projects</Typography>
       </Box>
       <Box sx={{marginTop: "135px"}}>
       <Container id="responsive-container-project" style={{ borderStyle: "none" , marginBottom:"2%"}} >
