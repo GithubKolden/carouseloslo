@@ -1,5 +1,4 @@
 import { client, urlFor } from '../../../lib/client';
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useStateContext } from '../../../context/StateContext';
 import Carousel from 'react-material-ui-carousel';
 import { Box, Container } from '@mui/system';
@@ -7,8 +6,7 @@ import { Button, Grid} from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import Image from 'next/image';
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const ProductDetails = ({ product }) => {
   const { image, name, details, price, InStock, ferskhet } = product;
@@ -23,19 +21,12 @@ const ProductDetails = ({ product }) => {
   return (
     <Container id="responsive-container-slug" style={{ color: '#494949' }}>
       <Grid container spacing={3}>
+
         <Grid item xs={12} sm={6}>
           <Box textAlign="center" style={{ maxWidth: '100%', maxHeight: '100%' }}>
           <Carousel
-                indicatorIconButtonProps={{
-                  style: {
-                    color: "white"
-                  }
-                }}
-                navButtonsProps={{
-                  style: {
-                    backgroundColor: "white",
-                  }
-                }}
+                indicatorIconButtonProps={{ style: {color: "white"} }}
+                navButtonsProps={{ style: {backgroundColor: "white"} }}
                 NextIcon={<KeyboardArrowRight />}
                 PrevIcon={<KeyboardArrowLeft />}
               >
@@ -55,6 +46,7 @@ const ProductDetails = ({ product }) => {
             </Carousel>
           </Box>
         </Grid>
+
         <Grid item xs={12} sm={6}>
           <Box>
             <h1>{name}</h1>
@@ -77,6 +69,7 @@ const ProductDetails = ({ product }) => {
             </div>
           </Box>
         </Grid>
+
       </Grid>
     </Container>
   );

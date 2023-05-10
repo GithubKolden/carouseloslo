@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { client, urlFor } from '../../lib/client';
 import Link from "next/link";
-import { TextField, Box, Container, Grid, ButtonGroup, Button } from "@mui/material";
-import { useStateContext } from '../../context/StateContext';
+import { TextField, Container, Grid, ButtonGroup, Button } from "@mui/material";
 import Image from "next/image";
 import customImage from "../../public/custom.png";
 
@@ -44,7 +43,6 @@ const Shop = ({ products }) => {
           </ButtonGroup>
         </Grid>
 
-
         <Grid container justifyContent="center" style={{borderStyle: "none", paddingTop: "0.5%"}}>
 
           <Grid key="custom-order-card" md={4} style={{textAlign: "center", width: "50%", justifyContent: "center", alignItems: "center" }}>
@@ -55,7 +53,7 @@ const Shop = ({ products }) => {
                 </div>
                 <div className="bottom" >
                   <p>
-                    <p>Custom Order</p>
+                    <p>Custom</p>
                   </p>
                 </div>
               </div>

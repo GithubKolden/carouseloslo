@@ -106,12 +106,6 @@ const Navigationbar = ({}) => {
                   <Typography textAlign="center">About</Typography>
                 </Link>
               </MenuItem>
-
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Link href="/order">
-                  <Typography textAlign="center">Custom Order</Typography>
-                </Link>
-              </MenuItem>
                
             </Menu> 
             

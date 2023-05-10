@@ -1,4 +1,4 @@
-import { Container, Grid, Box, Typography } from '@mui/material';
+import { Grid, Box, Typography } from '@mui/material';
 import { client, urlFor } from '../../lib/client';
 import Background from "./background"
 

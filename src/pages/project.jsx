@@ -17,12 +17,15 @@ const Project = ({ projects, backgrounds }) => {
   return (
     <div>
       <Background backgrounds={backgrounds} style={{ zIndex: -1 }} />
+    
       <Box sx={{ position: 'absolute', top: '40px', bottom: "40px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0" }} >
         <Typography variant='h3' style={{backgroundColor: "rgba(255, 255, 255, 0.5)",
-  backdropFilter: "blur(10px)",
-  borderRadius: "10px",
-  padding: "2rem",height:"100px"}}>Projects</Typography>
+          backdropFilter: "blur(10px)",
+          borderRadius: "10px",
+          padding: "2rem",height:"100px"}}>Projects
+        </Typography>
       </Box>
+
       <Box sx={{marginTop: "135px"}}>
       <Container id="responsive-container-project" style={{ borderStyle: "none" , marginBottom:"2%"}} >
 
@@ -37,16 +40,8 @@ const Project = ({ projects, backgrounds }) => {
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                   <Carousel
-                    indicatorIconButtonProps={{
-                      style: {
-                        color: "white"
-                      }
-                    }}
-                    navButtonsProps={{
-                      style: {
-                        backgroundColor: "white",
-                      }
-                    }}
+                    indicatorIconButtonProps={{ style: {color: "white"} }}
+                    navButtonsProps={{ style: {backgroundColor: "white"} }}
                     NextIcon={<KeyboardArrowRight />}
                     PrevIcon={<KeyboardArrowLeft />}
                   >

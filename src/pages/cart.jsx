@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlinePlus, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { useStateContext } from '../../context/StateContext';
 import { urlFor } from '../../lib/client';
 //import getStripe from '../lib/getStripe'; 
-import { Box, Container } from '@mui/system';
+import { Container } from '@mui/system';
 import { Button } from '@mui/material';
 
 const Cart = () => {
