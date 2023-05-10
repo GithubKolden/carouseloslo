@@ -8,10 +8,7 @@ import Image from "next/image";
 const Shop = ({ products }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(products);
-  const { image, name, details, price, InStock , ferskhet} = products;
-  const [isInStock, setIsInStock] = useState(InStock);
-
-
+  
   const handleFilter = (filterTerm) => {
     if (filterTerm === "All") {
       setFilteredProducts(products);
@@ -36,11 +33,11 @@ const Shop = ({ products }) => {
             </Grid>
 
             <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-              <Button onClick={() => handleFilter("fersk")}>Fersk</Button>
+              <Button onClick={() => handleFilter(true)}>Fersk</Button>
             </Grid>
 
             <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-              <Button onClick={() => handleFilter("tørket")}>Tørket</Button>
+              <Button onClick={() => handleFilter(false)}>Tørket</Button>
             </Grid>
 
           </ButtonGroup>
@@ -51,13 +48,13 @@ const Shop = ({ products }) => {
           
           {filteredProducts
             .filter((product)=>{
-              if (searchTerm === "") { return product.InStock === true }
-              else if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) { return product.InStock === true }
+              if (searchTerm === "") { return product.InStock }
+              else if (product.name.toLowerCase().includes(searchTerm.toLowerCase())) { return product.InStock }
+              return false;
             })
             .map((product) => {
               return (
                 <Grid key={product.slug.current} md={4} style={{textAlign: "center", width: "50%", justifyContent: "center", alignItems: "center" }}>
-
                   <Link key={product.slug.current} style={{ cursor: "pointer", textDecoration: "none", display:"flex"}} href={`/product/${product.slug.current}`}>
                     <div className="card card-1" style={{ width: "90%", textAlign:"center"}}>
                       <div className="top">
@@ -76,6 +73,7 @@ const Shop = ({ products }) => {
         </Grid>
         
       </Container>
+
     </div>
   )
 }
