@@ -32,9 +32,9 @@ const ProductDetails = ({ product }) => {
               >
               {image?.map((item, index) => {
                 return (
-                  <Image
-                    height={400}
-                    width={350}
+                  <Image className='product_image'
+                    height={600}
+                    width={500}
                     component="img"
                     style={{ maxWidth: '100%', maxHeight: '100%' }}
                     src={urlFor(item).url()}
@@ -53,7 +53,7 @@ const ProductDetails = ({ product }) => {
             <p style={{ paddingTop: '15px', paddingBottom: '25px' }}>
               {details}
             </p>
-            <p style={{ fontWeight: 'bold' }}>{price},- kr</p>
+            <p style={{ fontWeight: 'bold',paddingBottom: '10px' }}>{price},- kr</p>
 
             <div className="Buttons">
               <Button

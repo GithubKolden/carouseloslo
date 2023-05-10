@@ -63,6 +63,10 @@ border-color: black;
 
 /* MOBIL */
 @media screen and (max-width: 1000px) {
+  .product_image {
+    width: 400px;
+    height: 350px;
+  }
   .card {
     background: #fff;
     border-radius: 3px;

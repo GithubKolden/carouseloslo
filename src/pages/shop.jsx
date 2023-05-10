@@ -26,20 +26,32 @@ const Shop = ({ products }) => {
         </Grid>
 
         <Grid container style={{borderStyle: "none"}} justifyContent="center">
-          <ButtonGroup variant="contained" aria-label="outlined primary button group" style={{ boxShadow: "none" }}>
-
-            <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-              <Button onClick={() => handleFilter("All")}>All</Button>
-            </Grid>
-
-            <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-              <Button onClick={() => handleFilter(true)}>Fersk</Button>
-            </Grid>
-
-            <Grid item alignItems="center" md={4} style={{textAlign: "center", borderStyle: "none"}}>
-              <Button onClick={() => handleFilter(false)}>Tørket</Button>
-            </Grid>
-
+        <ButtonGroup
+            variant="contained"
+            aria-label="outlined primary button group"
+            style={{ boxShadow: "none" }}
+          >
+            <Button
+              onClick={() => handleFilter("All")}
+              style={{ width: "100px" }}
+              color={filteredProducts.length === products.length ? "success" : "primary"}
+            >
+              All
+            </Button>
+            <Button
+              onClick={() => handleFilter(true)}
+              style={{ width: "100px" }}
+              color={filteredProducts.length !== products.length && filteredProducts[0].ferskhet === true ? "success" : "primary"}
+            >
+              Fersk
+            </Button>
+            <Button
+              onClick={() => handleFilter(false)}
+              style={{ width: "100px" }}
+              color={filteredProducts.length !== products.length && filteredProducts[0].ferskhet === false ? "success" : "primary"}
+            >
+              Tørket
+            </Button>
           </ButtonGroup>
         </Grid>
 
@@ -53,7 +65,7 @@ const Shop = ({ products }) => {
                 </div>
                 <div className="bottom" >
                   <p>
-                    <p>Custom</p>
+                  <p style={{fontWeight:"600"}}>Custom Order</p>
                   </p>
                 </div>
               </div>
@@ -74,10 +86,11 @@ const Shop = ({ products }) => {
                       <div className="top">
                         <Image height={500} width={400} key={product.slug.current} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
                       </div>
-                      <div className="bottom" >
-                        <p>
+                      <div className="bottom" style={{ display:"flex"}}>
+                        <p style={{fontWeight:"600"}}>
                           {product.name}
                         </p>
+                        <p style={{float:"right",width:"30%"}}>{product.price},-</p>
                       </div>
                     </div>
                   </Link>
