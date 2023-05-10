@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TextField, Box, Container, Grid, ButtonGroup, Button } from "@mui/material";
 import { useStateContext } from '../../context/StateContext';
 import Image from "next/image";
+import customImage from "../../public/custom.png";
 
 const Shop = ({ products }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -45,6 +46,21 @@ const Shop = ({ products }) => {
 
 
         <Grid container justifyContent="center" style={{borderStyle: "none", paddingTop: "0.5%"}}>
+
+          <Grid key="custom-order-card" md={4} style={{textAlign: "center", width: "50%", justifyContent: "center", alignItems: "center" }}>
+            <Link key="custom-order-card" style={{ cursor: "pointer", textDecoration: "none", display:"flex"}} href={`/order`}>
+              <div className="card card-1" style={{ width: "90%", textAlign:"center"}}>
+                <div className="top">
+                <Image height={500} width={400} key="custom-order-card" component="img" src={customImage} alt="custom-order-card"/>
+                </div>
+                <div className="bottom" >
+                  <p>
+                    <p>Custom Order</p>
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </Grid>
           
           {filteredProducts
             .filter((product)=>{

@@ -1,32 +1,25 @@
 import { useStateContext } from '../../context/StateContext';
 import { AiOutlineShopping } from 'react-icons/ai';
 import Link from 'next/link';
-import { client, urlFor } from '../../lib/client';
-import Bilde from "../img/oo.png"
-
+import { client } from '../../lib/client';
+import { useEffect } from 'react';
 
 //MATERIAL UI:
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
 import { Tooltip, MenuItem, Button, Container, Menu, Typography, IconButton, Toolbar, Box } from '@mui/material/'; 
-import Image from 'next/image';
 
-const pages = ['Home', 'Shop', 'Projects', 'Contact', 'About'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Shop', 'Projects', 'About'];
 
 const Navigationbar = ({}) => {
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => { setAnchorElNav(event.currentTarget); };
   const handleCloseNavMenu = () => { setAnchorElNav(null); };
-
-  
   const { showCart, setShowCart, totalQuantities } = useStateContext();
-/*
+
   useEffect(() => {
     if (window.location.pathname.split("",2).pop() === "/")  {
       (document.getElementById("logo") as HTMLElement).style.display = "none";
@@ -34,7 +27,7 @@ const Navigationbar = ({}) => {
       (document.getElementById("logo") as HTMLElement).style.display = "";
     }
   })
-  */
+  
   return (
     <AppBar id="navbar" position="fixed" elevation={0}>
       <Container maxWidth="xl">
@@ -109,12 +102,6 @@ const Navigationbar = ({}) => {
               </MenuItem>
 
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link href="/contact">
-                  <Typography textAlign="center">Contact</Typography>
-                </Link>
-              </MenuItem>
-
-              <MenuItem onClick={handleCloseNavMenu}>
                 <Link href="/about">
                   <Typography textAlign="center">About</Typography>
                 </Link>
@@ -135,6 +122,7 @@ const Navigationbar = ({}) => {
           <Box sx={{ flexGrow: 0 }}>
             <Link href = "/">
             <IconButton
+                id="logo"
                 sx={{
                   mr: 6,
                   mt: 1,
@@ -182,12 +170,6 @@ const Navigationbar = ({}) => {
   <Link href="/about" passHref>
     <Button sx={{ color: 'inherit', textDecoration: 'none' }}>
       ABOUT
-    </Button>
-  </Link>
-
-  <Link href="/order" passHref>
-    <Button sx={{ color: 'inherit', textDecoration: 'none' }}>
-      CUSTOM ORDER
     </Button>
   </Link>
 </Box>
