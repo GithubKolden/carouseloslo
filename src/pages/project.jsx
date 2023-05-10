@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
 import { client, urlFor } from '../../lib/client';
-import Link from "next/link";
-import { TextField, Box, Container, Grid, ButtonGroup, Button , Typography} from "@mui/material";
-import { useStateContext } from '../../context/StateContext';
+import { Box, Container, Grid, Typography} from "@mui/material";
 import Carousel from 'react-material-ui-carousel';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
