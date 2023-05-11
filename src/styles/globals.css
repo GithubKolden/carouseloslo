@@ -54,6 +54,10 @@ border-color: black;
 
 /* MOBIL */
 @media screen and (max-width: 1000px) {
+  .project_image{
+    height:auto;
+    width:300px;
+  }
 
   #container-about-contact  {
     margin-top: 80px;
