@@ -63,8 +63,18 @@ border-color: black;
 
 /* MOBIL */
 @media screen and (max-width: 1000px) {
+  .card-1{
+
+  }
+
+  .card_text_price {
+    font-size: 13px;
+
+  }
+  
   .card_text {
-    font-size: 200px;
+    font-size: 14px;
+    font-weight: 550;
   }
   .product_image {
     width: 400px;
@@ -74,7 +84,7 @@ border-color: black;
     background: #fff;
     border-radius: 3px;
     display: inline-block;
-    height: 200px;
+    height: 250px;
     margin: 1rem;
     position: relative;
     width: 120px;
@@ -109,6 +119,15 @@ border-color: black;
 
 /* PC */
 @media screen and (min-width: 1000px) {
+
+  .card_text_price {
+    font-size: 20px;
+  }
+  .card_text {
+    font-size: 22px;
+    font-weight: 550;
+  }
+
   .card {
     background: #fff;
     border-radius: 3px;
@@ -372,18 +391,19 @@ padding: 20px 10px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  padding-left: 20px;
+  padding-left: 12px;
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #444;
-  font-size: 18px;
+
   font-family: Roboto, sans-serif;
 }
 
 .card-1 {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  
 }
 
 .card-1:hover {

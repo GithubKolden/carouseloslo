@@ -64,7 +64,7 @@ const Shop = ({ products }) => {
                 <Image height={500} width={400} key="custom-order-card" component="img" src={customImage} alt="custom-order-card"/>
                 </div>
                 <div className="bottom">
-                  <p style={{fontWeight:"600", fontSize:"2.5vh"}}>Custom Order</p>
+                  <p className="card_text">Custom Order</p>
                 </div>
               </div>
             </Link>
@@ -85,10 +85,12 @@ const Shop = ({ products }) => {
                         <Image height={500} width={400} key={product.slug.current} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
                       </div>
                       <div className="bottom" style={{ display:"flex" }}>
-                        <p className="card_text" id="yo" style={{fontWeight:"600", fontSize:"2.5vh"}}>
+                        <p className="card_text" id="yo" style={{ }}>
                           {product.name}
                         </p>
-                        <p className="card_text" style={{width:"40%" , fontSize:"2vh"}}>{product.price},-</p>
+                        <p className="card_text_price" style={{width:"40%"}}>{product.price},-</p>
+
+                        
                       </div>
                     </div>
                   </Link>
@@ -101,6 +103,9 @@ const Shop = ({ products }) => {
 
     </div>
   )
+
+  
+
 }
 
 export const getServerSideProps = async () => {
@@ -111,4 +116,8 @@ export const getServerSideProps = async () => {
     props: { products, }
   }
 }
+
+
+
 export default Shop;
+
