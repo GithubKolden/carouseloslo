@@ -123,11 +123,12 @@ const Navigationbar = ({}) => {
             sx={{
               flexGrow: 0,
               width: "100%",
-              height: "50%",
+              height: "80%",
               display: { xs: "flex", md: "none" },
-                 
+              border: "dotted",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
+              position: "absolute"
             }}
           >
             <Link href="/">
