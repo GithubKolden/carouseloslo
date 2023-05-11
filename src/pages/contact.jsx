@@ -1,71 +1,44 @@
-import { Grid, Box, Typography } from '@mui/material';
+import { Grid, Box, Typography, Container } from '@mui/material';
 import { client, urlFor } from '../../lib/client';
 import Background from "./background"
 
 const Contact = ({contacts, backgrounds}) => {
   return (
-    <div style={{position: "relative", display: "flex", justifyContent: "center", marginBottom:"2%"}}>
-      <Background backgrounds={backgrounds} style={{zIndex: -1}}/>
-      <div id="responsive-container-contact" style={{ width: "70%", position: 'relative' }}>
-        <Grid container justifyContent='center'>
-          
-        </Grid>
-        <div style={{ background: 'rgba(255, 255, 255, 0.8)', padding: '40px', borderRadius: '10px', marginTop: '20px', marginLeft: '-10px', marginRight: '-10px' }}>
-          {contacts?.map((item, index)=> (
-            <Grid container spacing={2} key={index}>
-              <Grid item xs={12} md={6}>
-                <Box id="contact_top_left" style={{background: 'rgba(0, 0, 0, 0.1)', widht:"69%", height:"50vh"}}>
-                  <img src={urlFor(item.image[0]).url()} style={{ width:"100%", padding:"2%"}} />
-                </Box>
+    <>
+    <Background backgrounds={backgrounds} style={{ zIndex: -1}} />
+      
+      <Container sx={{ position: 'relative', display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
+        <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(5px)', zIndex: -1 }} />
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: '2rem', backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(5px)', borderRadius: '20px', zIndex: 0 }}>
+          {contacts?.map((item, index) => (
+            <Grid container justifyContent='center' alignItems='center' key={item.slug.current}>
+              <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
+                <Box
+                  component="img"
+                  src={urlFor(item.image[0])}
+                  alt="Contact image"
+                  style={{ width: "100%", height: "auto" }}
+                />
               </Grid>
-              <Grid item xs={12} md={6}>
-              <Box id="contact_top_right" style={{
-                textAlign: "center",
-                background: 'rgba(0, 0, 0, 0.1)',
-                padding:"5%",
-                position: 'relative', /* Set position property to relative on parent element */
-                width:"65vh",
-                height:"50vh"
-              }}>
-                <div style={{ 
-                  position: 'absolute', /* Set position property to absolute on child element */
-                  top: '50%', /* Set top property to 50% */
-                  left: '50%', /* Set left property to 50% */
-                  transform: 'translate(-50%, -50%)', /* Use translate to center the element */
+              <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
+                <Box id="contact-box-1" sx={{ justifyContent: 'center', borderStyle: "none" }}>
+                  <Typography variant='h6' gutterBottom  style={{ textAlign:"center"}}>
+                    <h1 style={{textAlign:"Center", marginBottom:"2%"}}>Contact</h1>
+                    <p>{item.email}</p>
+                    <p>{item.telefon}</p>
+                    <p>{item.adresse}</p>
+                    <br></br>
+                    <p>{item.information}</p>
 
-                }}>
-                  <Typography variant="h4">Contact Information</Typography>
-                  <Typography variant="h6">{item.email}</Typography>
-                  <Typography variant="h6">{item.telefon}</Typography>
-                  <Typography variant="h6">{item.adresse}</Typography>
-                </div>
-              </Box>
+                    {item.contact}
+                  </Typography>
+                </Box>
               </Grid>
             </Grid>
           ))}
-        </div>
-      </div>
-      <style jsx>{`
-        @media (max-width: 600px) {
-          #contact_top_box {
-            flex-direction: column;
-          }
-          #contact_bot_box {
-            flex-direction: column;
-          }
-          #contact_top_box img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-          }
-          #contact_bot_box img {
-            width: 100%;
-            height: auto;
-            margin-top: 20px;
-          }
-        }
-      `}</style>
-    </div>
+        </Box>
+      </Container>
+    </>
   );
 }
 
