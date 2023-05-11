@@ -125,7 +125,7 @@ const Navigationbar = ({}) => {
               width: "100%",
               height: "80%",
               display: { xs: "flex", md: "none" },
-              border: "dotted",
+              
               justifyContent: "center",
               alignItems: "center",
               position: "absolute"
