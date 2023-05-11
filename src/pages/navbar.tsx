@@ -119,7 +119,17 @@ const Navigationbar = ({}) => {
           {/*LOGO MOBILE:*/}
           
           
-          <Box sx={{ flexGrow: 0, width: "100%", height: "50%" }}>
+          <Box
+            sx={{
+              flexGrow: 0,
+              width: "100%",
+              height: "50%",
+              display: { xs: "flex", md: "none" },
+              
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
             <Link href="/">
               <IconButton
                 id="logo"
@@ -133,7 +143,7 @@ const Navigationbar = ({}) => {
                   backgroundSize: 'contain',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center center', // center the image
-                  width: '100%',
+                  width: '170px',
                   height: '40px',
                   borderRadius: 0,
                   justifyContent: "center"
