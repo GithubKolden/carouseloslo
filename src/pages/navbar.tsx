@@ -123,11 +123,12 @@ const Navigationbar = ({}) => {
             sx={{
               flexGrow: 0,
               width: "100%",
-              height: "50%",
+              height: "80%",
               display: { xs: "flex", md: "none" },
-              
+              border: "dotted",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
+              position: "absolute"
             }}
           >
             <Link href="/">
@@ -143,8 +144,8 @@ const Navigationbar = ({}) => {
                   backgroundSize: 'contain',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center center', // center the image
-                  width: '170px',
-                  height: '40px',
+                  width: '175px',
+                  height: '45px',
                   borderRadius: 0,
                   justifyContent: "center"
                   
