@@ -31,7 +31,7 @@ const Navigationbar = ({}) => {
   return (
     <AppBar id="navbar" position="fixed" elevation={0}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters style={{position: "relative"}}>
           
           <Typography
             variant="h6"
@@ -46,6 +46,7 @@ const Navigationbar = ({}) => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              
             }}
           >
           {/*<Image id="logo" src={logo} className="classes.logo" alt="logo" style={{width: "170px", left: "15px", height: "auto", float: "left", position: "absolute"}}/>
@@ -53,7 +54,7 @@ const Navigationbar = ({}) => {
           </Typography>
 
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, zIndex: 2}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -61,6 +62,8 @@ const Navigationbar = ({}) => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              
+              
             >
               <MenuIcon />
             </IconButton>
@@ -70,6 +73,7 @@ const Navigationbar = ({}) => {
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
+                
               }}
               keepMounted
               transformOrigin={{
@@ -80,6 +84,7 @@ const Navigationbar = ({}) => {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
+                
               }}
             > {/* Rendrer sidene i mobilversjon: */}
               
@@ -135,7 +140,7 @@ const Navigationbar = ({}) => {
               <IconButton
                 id="logo"
                 sx={{
-                  
+                  zIndex: 2,
                   display: { xs: 'flex', md: 'none' },
                   flexGrow: 1,
                   color: 'inherit',
@@ -189,7 +194,7 @@ const Navigationbar = ({}) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Show items">
-              <IconButton sx={{ p: 0 }}>
+              <IconButton sx={{ p: 0, zIndex: 1 }}>
                 <Link href="/cart">
                   <AiOutlineShopping />
                   <span className='cart-item-qty'>{totalQuantities}</span>
