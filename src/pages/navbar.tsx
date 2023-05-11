@@ -113,13 +113,12 @@ const Navigationbar = ({}) => {
           {/*LOGO MOBILE:*/}
           
           
-          <Box sx={{ flexGrow: 0 }}>
-            <Link href = "/">
-            <IconButton
+          <Box sx={{ flexGrow: 0, width: "100%", height: "50%" }}>
+            <Link href="/">
+              <IconButton
                 id="logo"
                 sx={{
-                  mr: 6,
-                  mt: 1,
+                  
                   display: { xs: 'flex', md: 'none' },
                   flexGrow: 1,
                   color: 'inherit',
@@ -127,10 +126,13 @@ const Navigationbar = ({}) => {
                     'url(https://cdn.sanity.io/images/et4hr2p6/production/a6b4450087ae3be885b49851505f18178d8aa23b-1888x313.png?w=2000&fit=max&auto=format)',
                   backgroundSize: 'contain',
                   backgroundRepeat: 'no-repeat',
-                  width: '170px',
+                  backgroundPosition: 'center center', // center the image
+                  width: '100%',
                   height: '40px',
-                  borderRadius: 0 
-
+                  borderRadius: 0,
+                  justifyContent: "center"
+                  
+                  
                 }}
               ></IconButton>
             </Link>
