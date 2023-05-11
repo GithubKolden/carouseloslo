@@ -50,23 +50,29 @@ const Cart = () => {
 
                   <div className="flex top">
                     <h5>{item.name}</h5>
-                    <h4>{item.price}</h4>
+                    <h4>{item.price}kr</h4>
                   </div>
 
                   <div className="flex bottom">
 
                     <div>
-                    <p className="quantity-desc">
-                    <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
-                      <AiOutlineMinus />
-                      </span>
-                      <span className="num" onClick="">{item.quantity}</span>
-                      <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }><AiOutlinePlus /></span>
-                    </p>
+                      <p className="quantity-desc">
+                        <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
+                          <AiOutlineMinus size={25} />
+                        </span>
+
+                        <span className="num" onClick="" style={{fontSize:"200%", padding: "20px"}}>
+                          {item.quantity}
+                        </span>
+
+                        <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }>
+                          <AiOutlinePlus size={25}/>
+                        </span>
+                      </p>
                     </div>
 
                     <button type="button" className="remove-item" onClick={() => onRemove(item)}>
-                      <TiDeleteOutline style={{color: "red"}} />
+                      <TiDeleteOutline style={{color: "red"}} size={30} />
                     </button>
 
                   </div>
@@ -84,7 +90,7 @@ const Cart = () => {
             <div className="cart-bottom">
               <div className="total">
                 <h3>Subtotal:</h3>
-                <h3>{totalPrice},-</h3>
+                <h3>{totalPrice},- kr</h3>
               </div>
               <div style={{textAlign: "center"}}>
                 <Button
