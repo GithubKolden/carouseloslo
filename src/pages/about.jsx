@@ -8,7 +8,7 @@ const About = ({ abouts, backgrounds }) => {
     <>
       <Background backgrounds={backgrounds} style={{ zIndex: -1}} />
       
-      <Container sx={{ position: 'relative', display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
+      <Container id="container-about-contact" sx={{ position: 'relative', display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(5px)', zIndex: -1 }} />
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: '2rem', backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(5px)', borderRadius: '20px', zIndex: 0 }}>
           {abouts?.map((item, index) => (
