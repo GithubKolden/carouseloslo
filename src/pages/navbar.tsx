@@ -125,7 +125,7 @@ const Navigationbar = ({}) => {
               width: "100%",
               height: "50%",
               display: { xs: "flex", md: "none" },
-              
+                 
               justifyContent: "center",
               alignItems: "center"
             }}
@@ -143,8 +143,8 @@ const Navigationbar = ({}) => {
                   backgroundSize: 'contain',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center center', // center the image
-                  width: '170px',
-                  height: '40px',
+                  width: '175px',
+                  height: '45px',
                   borderRadius: 0,
                   justifyContent: "center"
                   
