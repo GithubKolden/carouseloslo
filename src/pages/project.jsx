@@ -20,7 +20,7 @@ const Project = ({ projects, backgrounds }) => {
       <Background backgrounds={backgrounds} style={{ zIndex: -1 }} />
     
       <Box sx={{ position: 'absolute', top: '50px', bottom: "40px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0", marginTop: "2.7%" }} >
-        <Typography variant='h3' style={{ display: "flex", backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(10px)", borderRadius: "10px", padding: "0.75rem", height: "5rem"  }}>
+        <Typography variant='h4' style={{ display: "flex", backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(10px)", borderRadius: "10px", padding: "1.15rem", height: "5rem"  }}>
             Projects
         </Typography>
       </Box>
