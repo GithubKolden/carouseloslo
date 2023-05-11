@@ -103,6 +103,12 @@ const Navigationbar = ({}) => {
 
               <MenuItem onClick={handleCloseNavMenu}>
                 <Link href="/about">
+                  <Typography textAlign="center">Contact</Typography>
+                </Link>
+              </MenuItem>
+
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="/about">
                   <Typography textAlign="center">About</Typography>
                 </Link>
               </MenuItem>

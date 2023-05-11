@@ -82,7 +82,7 @@ const Shop = ({ products }) => {
                   <Link key={product.slug.current} style={{ cursor: "pointer", textDecoration: "none", display:"flex"}} href={`/product/${product.slug.current}`}>
                     <div className="card card-1" style={{ width: "90%", textAlign:"center"}}>
                       <div className="top">
-                        <Image height={500} width={400} key={product.slug.current} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
+                        <Image height={500} width={400} quality={25} key={product.slug.current} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
                       </div>
                       <div className="bottom" style={{ display:"flex" }}>
                         <p className="card_text" id="yo" style={{ }}>

@@ -24,7 +24,7 @@ const About = ({ abouts, backgrounds }) => {
               <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
                 <Box id="contact-box-1" sx={{ justifyContent: 'center', borderStyle: "none" }}>
                   <Typography variant='h6' gutterBottom  style={{}}>
-                    <h1 style={{textAlign:"Center", marginBottom:"2%"}}>About description</h1>
+                    <h1 style={{textAlign:"Center", marginBottom:"2%"}}>About</h1>
                     {item.about}
                   </Typography>
                 </Box>

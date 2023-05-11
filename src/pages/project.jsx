@@ -4,7 +4,8 @@ import Carousel from 'react-material-ui-carousel';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import { styled } from '@mui/material/styles';
-import Background from "./background"
+import Background from "./background";
+import Image from "next/image";
 
 const FrostedBox = styled(Box)({
   backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -18,16 +19,14 @@ const Project = ({ projects, backgrounds }) => {
     <div>
       <Background backgrounds={backgrounds} style={{ zIndex: -1 }} />
     
-      <Box sx={{ position: 'absolute', top: '40px', bottom: "40px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0" }} >
-        <Typography variant='h3' style={{backgroundColor: "rgba(255, 255, 255, 0.5)",
-          backdropFilter: "blur(10px)",
-          borderRadius: "10px",
-          padding: "2rem",height:"100px"}}>Projects
+      <Box sx={{ position: 'absolute', top: '40px', bottom: "40px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0", marginTop: "2.7%" }} >
+        <Typography variant='h3' style={{ display: "flex", backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(10px)", borderRadius: "10px", padding: "1.20rem", height: "6rem",  }}>
+            Projects
         </Typography>
       </Box>
 
       <Box sx={{marginTop: "135px"}}>
-      <Container id="responsive-container-project" style={{ borderStyle: "none" , marginBottom:"2%"}} >
+      <Container id="responsive-container-project" style={{ borderStyle: "none" , marginBottom:"2%", marginTop: "12%" }} >
 
         {projects?.map((project) => {
           const images = project.image && project.image.map(image => ({
@@ -40,13 +39,13 @@ const Project = ({ projects, backgrounds }) => {
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                   <Carousel
-                    indicatorIconButtonProps={{ style: {color: "white"} }}
-                    navButtonsProps={{ style: {backgroundColor: "white"} }}
+                    indicatorIconButtonProps={{ style: { color: "white" } }}
+                    navButtonsProps={{ style: { backgroundColor: "white" } }}
                     NextIcon={<KeyboardArrowRight />}
                     PrevIcon={<KeyboardArrowLeft />}
                   >
                     {images.map((image, index) => (
-                      <img key={index} src={image.url} alt={image.alt} style={{ width: "100%" }} />
+                      <Image height={300} width={600} key={index} component="img" src={urlFor(image.url).url()} alt={index}/>
                     ))}
                   </Carousel>
                 </Grid>
@@ -57,6 +56,7 @@ const Project = ({ projects, backgrounds }) => {
             </FrostedBox>
           );
         })}
+
       </Container>
       </Box>
 
