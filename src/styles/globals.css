@@ -63,9 +63,12 @@ border-color: black;
 
 /* MOBIL */
 @media screen and (max-width: 1000px) {
+  .card_text {
+    font-size: 200px;
+  }
   .product_image {
     width: 400px;
-    height: 350px;
+    height: 100%;
   }
   .card {
     background: #fff;
@@ -327,7 +330,6 @@ padding: 20px 10px;
   transform:scale(1.1,1.1)
 }
 
-
 .drawed_line_total {
   height: 5px;
   background: black;
@@ -401,10 +403,6 @@ padding: 20px 10px;
 
 .next-error-h2 {
   color: white;
-}
-
-.css-r8u8y9 {
-  background-color: #324d67;
 }
 
 .css-6hp17o-MuiList-root-MuiMenu-list {

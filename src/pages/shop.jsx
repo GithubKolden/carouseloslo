@@ -43,14 +43,14 @@ const Shop = ({ products }) => {
               style={{ width: "100px" }}
               color={filteredProducts.length !== products.length && filteredProducts[0].ferskhet === true ? "success" : "primary"}
             >
-              Fersk
+              Fresh
             </Button>
             <Button
               onClick={() => handleFilter(false)}
               style={{ width: "100px" }}
               color={filteredProducts.length !== products.length && filteredProducts[0].ferskhet === false ? "success" : "primary"}
             >
-              Tørket
+              Dried
             </Button>
           </ButtonGroup>
         </Grid>
@@ -63,10 +63,8 @@ const Shop = ({ products }) => {
                 <div className="top">
                 <Image height={500} width={400} key="custom-order-card" component="img" src={customImage} alt="custom-order-card"/>
                 </div>
-                <div className="bottom" >
-                  <p>
-                  <p style={{fontWeight:"600"}}>Custom Order</p>
-                  </p>
+                <div className="bottom">
+                  <p style={{fontWeight:"600", fontSize:"2.5vh"}}>Custom Order</p>
                 </div>
               </div>
             </Link>
@@ -86,11 +84,11 @@ const Shop = ({ products }) => {
                       <div className="top">
                         <Image height={500} width={400} key={product.slug.current} component="img" src={urlFor(product.image && product.image[0]).url()} alt={product.slug.current}/>
                       </div>
-                      <div className="bottom" style={{ display:"flex"}}>
-                        <p style={{fontWeight:"600"}}>
+                      <div className="bottom" style={{ display:"flex" }}>
+                        <p className="card_text" id="yo" style={{fontWeight:"600", fontSize:"2.5vh"}}>
                           {product.name}
                         </p>
-                        <p style={{float:"right",width:"30%"}}>{product.price},-</p>
+                        <p className="card_text" style={{width:"40%" , fontSize:"2vh"}}>{product.price},-</p>
                       </div>
                     </div>
                   </Link>
