@@ -58,7 +58,7 @@ const Cart = () => {
                     <div>
                       <p className="quantity-desc" style={{marginLeft:"20px"}}>
                         <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
-                          <AiOutlineMinus size={25} />
+                          <AiOutlineMinus size={25} style={{cursor: "pointer"}}/>
                         </span>
 
                         <span className="num" onClick="" style={{fontSize:"200%", padding: "20px"}}>
@@ -66,7 +66,7 @@ const Cart = () => {
                         </span>
 
                         <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }>
-                          <AiOutlinePlus size={25}/>
+                          <AiOutlinePlus size={25} style={{cursor: "pointer"}}/>
                         </span>
                       </p>
                     </div>
