@@ -4,6 +4,7 @@ import { Grid, TextField, Button, Typography } from "@mui/material";
 import FileUpload from "react-mui-fileuploader";
 import customOrderImage from "../../public/custom_flowers.jpeg";
 import Image from "next/image";
+import {toast } from "react-hot-toast";
 
 const handleFileUploadError = (error) => {
     // Do something...
@@ -27,9 +28,11 @@ const Order = () => {
       )
       .then(
         (result) => {console.log(result.text);},
-        (error) => {console.log(error.text);}
+        (error) => {console.log(error.text);},
+        toast.success(`✔️ Order Created ✔️`)
       );
     e.target.reset();
+
   };
   
   const form = useRef();
@@ -61,11 +64,11 @@ const Order = () => {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <TextField label="Email" variant="outlined" name="email" required fullWidth/>
+              <TextField label="Telefon" variant="outlined" name="telefon" required fullWidth/>
             </Grid>
-
+            
             <Grid item xs={12}>
-              <TextField label="Subject" variant="outlined" name="subject" required fullWidth/>
+              <TextField label="Email" variant="outlined" name="email" required fullWidth/>
             </Grid>
 
             <Grid item xs={12}>
@@ -74,6 +77,7 @@ const Order = () => {
 
             <Grid item xs={12}>
               <FileUpload 
+                name = "file_name"
                 getBase64={false}
                 multiFile={true}
                 disabled={false}
@@ -86,7 +90,7 @@ const Order = () => {
                 maxUploadFiles={0}
                 maxFilesContainerHeight={357}
                 acceptedType={'image/*'}
-                allowedExtensions={['jpg', 'jpeg']}
+                allowedExtensions={['jpg', 'jpeg', "png"]}
                 onFilesChange={handleFilesChange}
                 onError={handleFileUploadError}
                 imageSrc={'path/to/custom/image'}
@@ -95,7 +99,9 @@ const Order = () => {
                 PlaceholderGridProps={{ md: 4 }}
                 LabelsGridProps={{ md: 8 }}
                 onContextReady={context => {
+                
                   // access to component context here
+                  
                 }}
                 ContainerProps={{
                   elevation: 0,
