@@ -54,6 +54,11 @@ border-color: black;
 
 /* MOBIL */
 @media screen and (max-width: 1000px) {
+  .custom_image{
+    width:100%;
+    height:auto;
+    padding-bottom: 5px;
+  }
   .project_title_box{
     margin-top: 2.7%;
   }

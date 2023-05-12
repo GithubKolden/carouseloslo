@@ -1,7 +1,9 @@
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { Grid, TextField, Button } from "@mui/material";
+import { Grid, TextField, Button, Typography } from "@mui/material";
 import FileUpload from "react-mui-fileuploader";
+import customOrderImage from "../../public/custom_flowers.jpeg";
+import Image from "next/image";
 
 const handleFileUploadError = (error) => {
     // Do something...
@@ -37,6 +39,21 @@ const Order = () => {
       <div className="container">
         <h1 style={{textAlign:"center", marginBottom:"2%"}}>Custom Order</h1>
         <form ref={form} onSubmit={sendEmail}>
+
+
+          <div>
+            <Image className="custom_image" height={500} width={750} key="custom-order-image" component="img" src={customOrderImage} alt="custom-order-image"/>
+
+            <Typography>
+              This form is intended for individuals who want to order a customized bouquet.
+              Describe how you want your bouquet in the description field.
+              You can also upload a picture of samples of flowers or in what setting the flowers should be in.
+              Fill in contact information so we can reach you when the order is recieved.
+            </Typography>
+          </div>
+
+          <br/>
+  
           <Grid container spacing={2} justify="center">
 
             <Grid item xs={12} sm={6}>
@@ -94,7 +111,7 @@ const Order = () => {
               />
 
               <Button type="submit" variant="contained" color="primary">
-                  Send message
+                  Create Order
               </Button>
 
             </Grid>
@@ -123,3 +140,7 @@ const Order = () => {
   );
 };
 export default Order;
+
+/*
+<Image fill key="custom-order-image" component="img" src={customOrderImage} alt="custom-order-image"/>
+*/
