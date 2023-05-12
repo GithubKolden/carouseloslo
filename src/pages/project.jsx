@@ -19,14 +19,14 @@ const Project = ({ projects, backgrounds }) => {
     <div>
       <Background backgrounds={backgrounds} style={{ zIndex: -1 }} />
     
-      <Box sx={{ position: 'absolute', top: '50px', bottom: "40px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0", marginTop: "2.7%" }} >
-        <Typography variant='h4' style={{ display: "flex", backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(10px)", borderRadius: "10px", padding: "1.15rem", height: "5rem"  }}>
+      <Box className="project_title_box" sx={{ position: 'absolute', top: '50px', bottom: "40px", left: 0, width: '100%', display: 'flex', justifyContent: 'center', zIndex:"0"}} >
+        <Typography variant='h4' style={{ display: "flex", backgroundColor: "rgba(255, 255, 255, 0.5)", backdropFilter: "blur(10px)", borderRadius: "10px", padding: "1rem", height: "5rem"  }}>
             Projects
         </Typography>
       </Box>
 
       <Box sx={{marginTop: "145px"}}>
-      <Container id="responsive-container-project" style={{ borderStyle: "none" , marginBottom:"2%", marginTop: "12%" }} >
+      <Container id="responsive-container-project" style={{ borderStyle: "none" , marginBottom:"2%", marginTop: "10%" }} >
 
         {projects?.map((project) => {
           const images = project.image && project.image.map(image => ({
@@ -50,7 +50,7 @@ const Project = ({ projects, backgrounds }) => {
                   </Carousel>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <p>{project.description}</p>
+                  <p className="project_description">{project.description}</p>
                 </Grid>
               </Grid>
             </FrostedBox>
