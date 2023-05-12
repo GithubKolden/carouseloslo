@@ -54,6 +54,13 @@ border-color: black;
 
 /* MOBIL */
 @media screen and (max-width: 1000px) {
+  .project_title_box{
+    margin-top: 2.7%;
+  }
+  .project_image{
+    height:auto;
+    width:300px;
+  }
 
   #container-about-contact  {
     margin-top: 80px;
@@ -109,6 +116,16 @@ border-color: black;
 
 /* PC */
 @media screen and (min-width: 1000px) {
+  .project_title_box{
+    margin-top: 2%;
+  }
+  .project_description{
+    padding-left: 15px;
+    font-size: 19px;
+  }
+  .contact_image{
+  
+  }
 
   .card_text_price {
     font-size: 20px;
