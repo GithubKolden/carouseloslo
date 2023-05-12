@@ -45,7 +45,7 @@ const Project = ({ projects, backgrounds }) => {
                     PrevIcon={<KeyboardArrowLeft />}
                   >
                     {images.map((image, index) => (
-                      <Image className="project_image" height={300} width={600} key={index} component="img" src={urlFor(image.url).url()} alt={index}/>
+                      <Image className="project_image" height={300} width={600} quality={90} key={index} component="img" src={urlFor(image.url).url()} alt={index}/>
                     ))}
                   </Carousel>
                 </Grid>

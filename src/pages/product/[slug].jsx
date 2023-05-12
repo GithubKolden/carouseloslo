@@ -35,6 +35,7 @@ const ProductDetails = ({ product }) => {
                   <Image className='product_image'
                     height={600}
                     width={500}
+                    quality={90}
                     component="img"
                     style={{ maxWidth: '100%', maxHeight: '100%' }}
                     src={urlFor(item).url()}

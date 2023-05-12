@@ -17,6 +17,7 @@ const Home = ({ logos, backgrounds }) => {
           top: "50%",
         }} key="logo">
           <Image
+            quality={80}
             layout="fill"
             objectFit="contain"
             src={urlFor(image.logo[0]).url()}
