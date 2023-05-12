@@ -1,6 +1,6 @@
 import { Grid, Box, useTheme } from '@mui/material';
 import { client, urlFor } from '../../lib/client';
-import Background from './background';
+import Background from '../components/background';
 import Image from 'next/legacy/image';
 
 const Home = ({ logos, backgrounds }) => {

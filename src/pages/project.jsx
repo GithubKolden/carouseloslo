@@ -4,7 +4,7 @@ import Carousel from 'react-material-ui-carousel';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import { styled } from '@mui/material/styles';
-import Background from "./background";
+import Background from "../components/background";
 import Image from "next/image";
 
 const FrostedBox = styled(Box)({

@@ -1,6 +1,6 @@
 import { Grid, Box, Typography, Container } from '@mui/material';
 import { client, urlFor } from '../../lib/client';
-import Background from "./background"
+import Background from "../components/background"
 
 const Contact = ({contacts, backgrounds}) => {
   return (
