@@ -6,14 +6,6 @@ import customOrderImage from "../../public/custom_flowers.jpeg";
 import Image from "next/image";
 import {toast } from "react-hot-toast";
 
-const handleFileUploadError = (error) => {
-    // Do something...
-  }
-  
-  const handleFilesChange = (files) => {
-    // Do something...
-    //setUploadedFiles([...files]);
-  }
 
 const Order = () => {
   const sendEmail = (e) => {
@@ -91,8 +83,6 @@ const Order = () => {
                 maxFilesContainerHeight={357}
                 acceptedType={'image/*'}
                 allowedExtensions={['jpg', 'jpeg', "png"]}
-                onFilesChange={handleFilesChange}
-                onError={handleFileUploadError}
                 imageSrc={'path/to/custom/image'}
                 BannerProps={{ elevation: 0, variant: "outlined" }}
                 showPlaceholderImage={false}
@@ -100,7 +90,6 @@ const Order = () => {
                 LabelsGridProps={{ md: 8 }}
                 onContextReady={context => {
                 
-                  // access to component context here
                   
                 }}
                 ContainerProps={{
@@ -146,7 +135,3 @@ const Order = () => {
   );
 };
 export default Order;
-
-/*
-<Image fill key="custom-order-image" component="img" src={customOrderImage} alt="custom-order-image"/>
-*/

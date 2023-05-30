@@ -4,14 +4,12 @@ import { AiOutlineMinus, AiOutlinePlus, AiOutlineShopping } from 'react-icons/ai
 import { TiDeleteOutline } from 'react-icons/ti';
 import { useStateContext } from '../../context/StateContext';
 import { urlFor } from '../../lib/client';
-//import getStripe from '../lib/getStripe'; 
 import { Container } from '@mui/system';
 import { Button } from '@mui/material';
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
-  /*HANDLECHECKOUT HER!*/
+  const { totalPrice, totalAmount, cartItems, setShowCart, toggleCartItemAmount, onRemove } = useStateContext();
 
   return (
     <Container
@@ -57,7 +55,7 @@ const Cart = () => {
 
                     <div>
                       <p className="quantity-desc" style={{marginLeft:"20px"}}>
-                        <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
+                        <span className="minus" onClick={() => toggleCartItemAmount(item._id, 'dec') }>
                           <AiOutlineMinus size={25} style={{cursor: "pointer"}}/>
                         </span>
 
@@ -65,7 +63,7 @@ const Cart = () => {
                           {item.quantity}
                         </span>
 
-                        <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }>
+                        <span className="plus" onClick={() => toggleCartItemAmount(item._id, 'inc') }>
                           <AiOutlinePlus size={25} style={{cursor: "pointer"}}/>
                         </span>
                       </p>
@@ -111,24 +109,3 @@ const Cart = () => {
 }
 
 export default Cart;
-
-/* STRIPE PAYMENTGATEWAY:
-  const handleCheckout = async () => {
-    const stripe = await getStripe();
-
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(cartItems),
-    });
-
-    if(response.statusCode === 500) return;
-    
-    const data = await response.json();
-
-    toast.loading('Redirecting...');
-
-    stripe.redirectToCheckout({ sessionId: data.id });
-  }*/

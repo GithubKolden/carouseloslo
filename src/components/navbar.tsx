@@ -18,7 +18,7 @@ const Navigationbar = ({}) => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => { setAnchorElNav(event.currentTarget); };
   const handleCloseNavMenu = () => { setAnchorElNav(null); };
-  const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const { showCart, setShowCart, totalAmount } = useStateContext();
 
   useEffect(() => {
     if (window.location.pathname.split("",2).pop() === "/")  {
@@ -49,8 +49,6 @@ const Navigationbar = ({}) => {
               
             }}
           >
-          {/*<Image id="logo" src={logo} className="classes.logo" alt="logo" style={{width: "170px", left: "15px", height: "auto", float: "left", position: "absolute"}}/>
-          */}
           </Typography>
 
 
@@ -197,7 +195,7 @@ const Navigationbar = ({}) => {
               <IconButton sx={{ p: 0, zIndex: 1 }}>
                 <Link href="/cart">
                   <AiOutlineShopping />
-                  <span className='cart-item-qty'>{totalQuantities}</span>
+                  <span className='cart-item-qty'>{totalAmount}</span>
                 </Link>
               </IconButton>
             </Tooltip>
@@ -223,13 +221,7 @@ const Navigationbar = ({}) => {
     </AppBar>
   )
 }
-/*
-<button type="button" className='cart-icon' onClick={() => setShowCart(true)}>
-            <AiOutlineShopping />
-            <span className='cart-item-qty'>{totalQuantities}</span>
-          </button>
-*/
-//{showCart && <Cart />}
+
 
 export const getServerSideProps = async () => {
   const logoQuery = `*[_type == "home"] { logo, name, slug,  }`;
